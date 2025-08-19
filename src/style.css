@@ -343,7 +343,7 @@ body.dark .contact-link {
   color: #fff;
 }
 body:not(.dark) .contact-link {
-  color: #111;
+  color: #111111;
 }
 /* Contact table left column style */
 .contact-label {
@@ -409,14 +409,14 @@ body.dark .resume-content table td:first-child {
 
 /* Tenure styling for both modes */
 .experience li .exp-tenure {
-  color: #111;
+  color: #111111;
   font-style: italic;
 }
 body.dark .experience li .exp-tenure {
   color: #ffffff;
   font-style: italic;
 }
-  color: #111;
+  color: #111111;
 }
 /* Modern experience card style */
 /* Modern experience card style with extra padding and rounded corners */
@@ -543,7 +543,7 @@ body.dark .animated-nav button {
 }
 body.dark .animated-nav button.active, body.dark .animated-nav button:focus {
   background: #ffe066;
-  color: #111;
+  color: #111111;
   font-weight: bold;
 }
 body {
@@ -656,7 +656,7 @@ body.dark .blog-post {
 }
 .hero {
   background: #fff;
-  color: #111;
+  color: #111111;
   padding: 60px 0 40px 0;
   text-align: center;
 }
