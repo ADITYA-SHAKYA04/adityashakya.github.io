@@ -40,7 +40,7 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 1.1rem 0;
-  gap: 3.2rem;
+  gap: 3.2rem; /* Original gap */
   border-radius: 0 0 2rem 2rem;
   margin-bottom: 2rem;
   transition: background 0.3s, box-shadow 0.3s, border 0.3s;
@@ -108,6 +108,15 @@ nav a:hover::after, nav a.active::after {
     section, .animated-section { padding: 1rem 1.2rem; text-align: center; }
   .project-card, .experience-card { padding: 1rem; }
   .contact-content table { font-size: 1em; }
+  nav {
+    gap: 1.2rem; /* Reduced gap for mobile */
+    padding: 0.7rem 0.5rem; /* Reduced padding for mobile */
+    flex-wrap: wrap; /* Allow wrapping of nav links */
+  }
+  nav a {
+    font-size: 1rem; /* Reduced font size for nav links */
+    padding: 0.4rem 0.8rem; /* Adjusted padding for nav links */
+  }
 }
 @media (max-width: 600px) {
   .hero-content h1 { font-size: 1.3rem !important; }
@@ -115,6 +124,14 @@ nav a:hover::after, nav a.active::after {
     section, .animated-section { padding: 0.5rem 0.7rem; text-align: center; }
   .project-card, .experience-card { padding: 0.5rem; }
   .contact-content table { font-size: 0.95em; }
+  nav {
+    gap: 0.5rem; /* Further reduced gap for smaller screens */
+    padding: 0.5rem 0.2rem; /* Further reduced padding for smaller screens */
+  }
+  nav a {
+    font-size: 0.95rem; /* Further reduced font size for nav links */
+    padding: 0.3rem 0.5rem; /* Further adjusted padding for nav links */
+  }
 }
 
 /* Scroll reveal animation */
