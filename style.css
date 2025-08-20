@@ -1,3 +1,47 @@
+/* Responsive improvements */
+@media (max-width: 900px) {
+  .hero-content h1 { font-size: 2rem !important; }
+  .download-resume-btn { font-size: 1rem; padding: 0.7rem 1.5rem; }
+  section, .animated-section { padding: 1rem 0.5rem; }
+  .project-card, .experience-card { padding: 1rem; }
+  .contact-content table { font-size: 1em; }
+}
+@media (max-width: 600px) {
+  .hero-content h1 { font-size: 1.3rem !important; }
+  .download-resume-btn { font-size: 0.95rem; padding: 0.5rem 1rem; }
+  section, .animated-section { padding: 0.5rem 0.2rem; }
+  .project-card, .experience-card { padding: 0.5rem; }
+  .contact-content table { font-size: 0.95em; }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Footer styling */
+footer {
+  background: rgba(255,255,255,0.95);
+  color: #222;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+  font-size: 1.08rem;
+}
+body.dark footer {
+  background: #23272b;
+  color: #ffe066;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.18);
+}
+footer a { transition: color 0.3s; }
+footer a:hover { color: #0056b3 !important; }
 /* Blinking typewriter cursor for JS effect */
 .typewriter-cursor {
   display: inline-block;
@@ -215,12 +259,20 @@ html.dark, body.dark {
   transition: background 0.3s, color 0.3s;
 }
 
-body.dark .project-card,
-body.dark .experience-card,
 body.dark .project-cards-container,
 body.dark .experience,
-body.dark .hero {
+body.dark .projects,
+body.dark .contact {
+  background: transparent !important;
+  color: #f8f9fa !important;
+}
+body.dark .project-card,
+body.dark .experience-card {
   background: #23272b !important;
+  color: #f8f9fa !important;
+}
+body.dark .hero {
+  background: transparent !important;
   color: #f8f9fa !important;
 }
 .toast-notification {
@@ -784,7 +836,7 @@ body.dark .blog-post {
   margin-bottom: 1.5rem;
 }
 .hero {
-  background: #fff;
+  background: transparent !important;
   color: #111111;
   padding: 60px 0 40px 0;
   text-align: center;
