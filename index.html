@@ -7,10 +7,148 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <button id="theme-toggle" class="dark-toggle modern-toggle" aria-label="Toggle dark mode">
+    <span class="toggle-track">
+      <span class="toggle-thumb" id="toggle-thumb">🌙</span>
+    </span>
+  </button>
   <div id="root">
-    <h1>Aditya Shakya | Profile</h1>
-    <p>This is a static HTML version of your site.</p>
-    <!-- Add more content here as needed -->
+    <section class="hero">
+      <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h1 class="typewriter" style="text-align: center;">ADITYA SHAKYA<span class="typewriter-cursor">|</span></h1>
+        <h2 style="text-align: center;">C++ / Android Developer</h2>
+        <p style="margin-top: 4rem; padding-left: 2rem; padding-right: 2rem; text-align: center; max-width: 700px;">
+          Experienced C++ and Android Developer with 3+ years in Android development and system-level programming. Skilled in building scalable automotive and mobile solutions using C++, Android SDK/NDK, and Java. Strong in cross-platform optimization, cloud integration, and leading development efforts. Seeking a role focused on practical solutions and continuous growth.
+        </p>
+        <a href="/AdityaShakya_3yrsC++Android.pdf" download class="download-resume-btn" style="margin-left: auto; margin-right: auto;">Download Resume</a>
+      </div>
+    </section>
+
+  <section class="experience">
+    <h2 style="text-align:center; margin-bottom:1.2rem;">Experience</h2>
+    <div class="project-cards-container" style="display: block; overflow: visible;">
+      <!-- Harman Connected Services -->
+      <div class="project-card fade-in">
+        <h3 class="project-name">Associate Engineer II, Software Engineering</h3>
+        <div class="project-summary">Harman Connected Services Pvt. Ltd. (Bangalore)</div>
+        <div class="project-summary"><b>Project:</b> PSA – STL (Automotive Security Team)</div>
+        <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Feb 2024 – Present</div>
+        <ul class="project-features">
+          <li class="project-feature-item">Designed and implemented functionalities for Android-based Automotive systems, improving integrity and reliability across deployments.</li>
+          <li class="project-feature-item">Contributed to the integration process of the TimeSecure protocol by analyzing HAL service behavior and assisting in flow validation across system components.</li>
+          <li class="project-feature-item">Optimized integrity-checking logic, resolving SOP-critical issues and enhancing security compliance.</li>
+          <li class="project-feature-item">Led defect triaging and resolution cycles, collaborating with cross-functional teams to unblock features and deliver timely fixes.</li>
+        </ul>
+  <div class="exp-environment">C++, STL, AOSP, HAL, Java, Linux, Android Native, Git, Multithreading, Code Sonar, Valgrind</div>
+      </div>
+      <!-- Hi-Tech Robotic Systemz -->
+      <div class="project-card fade-in">
+        <h3 class="project-name">Research Engineer</h3>
+        <div class="project-summary">The Hi-Tech Robotic Systemz Ltd. (Gurugram)</div>
+        <div class="project-summary"><b>Project:</b> Novus Aware – Attention & Behavior Monitoring (ADAS)</div>
+        <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Jun 2022 – Jan 2024</div>
+        <ul class="project-features">
+          <li class="project-feature-item">Heading ADAS R&D on Android platform, integrating innovative tech for enhanced driver behavior through pioneering Driver Monitoring State application. Committed to preemptively alerting drivers about risky behaviors for safer road.</li>
+          <li class="project-feature-item">Developed FOTA upgrade protocol for ADAS using UART communication protocol, ensuring seamless and efficient updates for connected devices.</li>
+          <li class="project-feature-item">Integrated AWS IoT services with ADAS IoT-enabled devices, enabling secure and scalable communication between devices and the cloud platform.</li>
+        </ul>
+  <div class="exp-environment">C, C++, STL, Java, Linux, Shell Scripting, Android SDK, Android NDK, IPC, SFTP, CAN/FOTA, AWS IoT, Git, Python, Multithreading, MQTT, Docker, S3 bucket, Valgrind, Data Structures and Algorithms</div>
+        <div style="margin-top:1.5rem;">
+          <h4 class="project-name">Intern</h4>
+          <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Mar 2021 – Jun 2022</div>
+          <ul class="project-features">
+            <li class="project-feature-item">Implemented driver image upload, critical warning notifications, power tampering alerts, and automated warning video features. Facilitated seamless transfer of corresponding metadata between device and Linux host over Wi-Fi utilizing the secure SFTP protocol with RSA authentication.</li>
+            <li class="project-feature-item">Designed and developed advanced ADAS application for Android platform and modules from technical requirement with cross-functional teams to define, design, and launch new features. (Enhancing Production Efficiency with 500%).</li>
+            <li class="project-feature-item">Developed the Real-time data uploading solution for the data to cloud and Leveraged the JITR of AWS-IoT.</li>
+          </ul>
+          <div class="exp-environment">C, C++, STL, Java, Linux, Shell Scripting, Android SDK, TCP, SFTP, CAN/FOTA, Docker, AWS IoT, Git, Python, Doxygen, Valgrind, S3 bucket, Data Structures and Algorithms</div>
+        </div>
+      </div>
+      <!-- New Software Solution LLP -->
+      <div class="project-card fade-in">
+        <h3 class="project-name">Android Intern</h3>
+        <div class="project-summary">New Software Solution LLP (Bhopal)</div>
+        <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Aug 2020 – Jan 2021</div>
+        <ul class="project-features">
+          <li class="project-feature-item">Chalo Pandit Ji - Built a location-based Android app enabling users to book verified Hindu priests for local religious services.</li>
+          <li class="project-feature-item">Self-help Audio - Redesigned and enhanced a mobile app for streaming audiobooks authored by independent writers.</li>
+          <li class="project-feature-item">Photo-Copy - Developed a native app for placing online print orders and filling applications via nearby trusted vendors.</li>
+        </ul>
+  <div class="exp-environment">Java, Android Studio, Rest APIs, Postman, Adobe XD, Firebase, Jira, Agile, Data Structures and Algorithms</div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <section class="projects">
+      <h2 style="text-align:center; margin-bottom:1.2rem;">Projects</h2>
+      <div class="project-cards-container" style="display: block; overflow: visible;">
+        <!-- SFTPApp -->
+        <div class="project-card fade-in">
+          <h3 class="project-name">SFTPApp</h3>
+          <div class="project-summary">A modern Android SFTP client for secure file browsing and downloading, designed for simplicity and privacy.</div>
+          <ul class="project-features">
+            <li class="project-feature-item">No intrusive permission dialogs—uses Android’s Storage Access Framework for seamless file/folder access.</li>
+            <li class="project-feature-item">Supports both dark and light themes, with UI elements adapting to system settings.</li>
+            <li class="project-feature-item">Clean Material Design interface for intuitive navigation.</li>
+            <li class="project-feature-item">Secure SFTP file browsing powered by JSch.</li>
+            <li class="project-feature-item">Multi-file selection and batch downloading with real-time progress indicators.</li>
+            <li class="project-feature-item">Download progress dialog shows percentage, file name, and file count.</li>
+            <li class="project-feature-item">Robust error handling for large files, connection issues, and download errors.</li>
+          </ul>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+        <!-- Crypto Android App -->
+        <div class="project-card fade-in">
+          <h3 class="project-name">Crypto Android App</h3>
+          <div class="project-summary">A modern Android application for secure text and file encryption/decryption using industry-standard cryptographic algorithms. Designed with a beautiful, theme-aware UI and robust security features.</div>
+          <ul class="project-features">
+            <li class="project-feature-item">Multiple Encryption Algorithms: AES-GCM (recommended, authenticated encryption), AES-CBC (legacy, for compatibility), RSA-OAEP (hybrid encryption for small data/keys), AES-PBKDF2 (password-based encryption)</li>
+            <li class="project-feature-item">Password-Based Encryption: Securely encrypt and decrypt text/files using a user-supplied password (PBKDF2).</li>
+            <li class="project-feature-item">File Encryption/Decryption: Encrypt and decrypt any file type, including images and documents, while preserving the original file format.</li>
+            <li class="project-feature-item">Clipboard Support: Easily copy encrypted/decrypted output to the clipboard.</li>
+            <li class="project-feature-item">Theme Support: Beautiful light and dark mode with smooth theme toggle.</li>
+            <li class="project-feature-item">Security Tips Dialog: Built-in dialog with best practices and algorithm info for user education.</li>
+            <li class="project-feature-item">Modern UI: Responsive, clean design with Material Components and custom color palettes.</li>
+          </ul>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2 style="text-align: center;">Contact</h2>
+      <div class="contact-content">
+        <table style="width:100%; border-collapse:separate; border-spacing:0 12px; font-size:1.08em; margin:0 auto;">
+          <tbody>
+            <tr>
+              <td class="contact-label">Email</td>
+              <td class="contact-value"><a href="mailto:aditya.shakya@email.com" class="contact-link">aditya.shakya@email.com</a></td>
+            </tr>
+            <tr>
+              <td class="contact-label">LinkedIn</td>
+              <td class="contact-value"><a href="https://www.linkedin.com/in/aditya-shakya/" target="_blank" rel="noopener noreferrer" class="contact-link">aditya-shakya</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
+<script>
+  // Theme toggle logic
+  const toggleBtn = document.getElementById('theme-toggle');
+  const thumb = document.getElementById('toggle-thumb');
+  function setTheme(dark) {
+    document.body.classList.toggle('dark', dark);
+    thumb.textContent = dark ? '☀️' : '🌙';
+    toggleBtn.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+  // Initial theme from localStorage or system
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+  setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+  toggleBtn.addEventListener('click', () => {
+    setTheme(!document.body.classList.contains('dark'));
+  });
+</script>
 </body>
 </html>
