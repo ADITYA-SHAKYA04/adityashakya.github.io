@@ -1,3 +1,76 @@
+/* Enhanced sticky navigation styles */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  border-bottom: 2px solid #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.1rem 0;
+  gap: 3.2rem;
+  border-radius: 0 0 2rem 2rem;
+  margin-bottom: 2rem;
+  transition: background 0.3s, box-shadow 0.3s, border 0.3s;
+}
+body.dark nav {
+  background: #23272b;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border-bottom: 2px solid #ffe066;
+}
+nav a {
+  font-weight: 700;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.18rem;
+  position: relative;
+  padding: 0.5rem 1.6rem;
+  border-radius: 1.5rem;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s, font-size 0.2s;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+}
+body.dark nav a {
+  color: #ffe066;
+}
+nav a:hover, nav a:focus {
+  color: #222;
+  background: rgba(0,123,255,0.10);
+}
+body.dark nav a:hover, body.dark nav a:focus {
+  color: #ffe066;
+  background: rgba(255,224,102,0.10);
+}
+nav a.active {
+  color: #222;
+  background: rgba(0,123,255,0.16);
+}
+body.dark nav a.active {
+  color: #ffe066;
+  background: rgba(255,224,102,0.16);
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  bottom: 8px;
+  width: 64%;
+  height: 3px;
+  background: #007bff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s, width 0.3s, background 0.3s;
+}
+body.dark nav a::after {
+  background: #ffe066;
+}
+nav a:hover::after, nav a.active::after {
+  opacity: 1;
+  width: 64%;
+}
+}
 /* Responsive improvements */
 @media (max-width: 900px) {
   .hero-content h1 { font-size: 2rem !important; }
