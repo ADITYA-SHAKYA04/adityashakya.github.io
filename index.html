@@ -1,13 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aditya Shakya | Profile</title>
-    <script type="module" crossorigin src="/aditya-shakya.github.io/assets/index-C6DX2Zdp.js"></script>
-    <link rel="stylesheet" crossorigin href="/aditya-shakya.github.io/assets/index-8yuvUqPD.css">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditya Shakya | Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
   <body>
-    <div id="root"></div>
-  </body>
+  <canvas id="page-particles" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;"></canvas>
+    <div class="star-bg"></div>
+  <button id="theme-toggle" class="dark-toggle modern-toggle" aria-label="Toggle dark mode">
+    <span class="toggle-track">
+      <span class="toggle-thumb" id="toggle-thumb">🌙</span>
+    </span>
+  </button>
+  <div id="root" style="position: relative; z-index: 2;">
+  <section class="hero scroll-reveal">
+      <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="display: flex; justify-content: center; padding-top: 2.5rem;">
+            <h1 style="text-align: center; margin: 0; font-size: 2.8rem;">
+              <span id="typewriter-head" style="font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace; letter-spacing:2px;"></span>
+            </h1>
+          </div>
+        <h2 style="text-align: center;">C++ / Android Developer</h2>
+  <p style="margin-top: 4rem; padding-left: 2rem; padding-right: 2rem; text-align: center; max-width: 700px; font-size: 1.25rem;">
+          Experienced C++ and Android Developer with 3+ years in Android development and system-level programming. Skilled in building scalable automotive and mobile solutions using C++, Android SDK/NDK, and Java. Strong in cross-platform optimization, cloud integration, and leading development efforts. Seeking a role focused on practical solutions and continuous growth.
+        </p>
+  <a href="/AdityaShakya_3yrsC++Android.pdf" download class="download-resume-btn" style="margin-left: auto; margin-right: auto;">Download Resume</a>
+  <div style="height: 2.5rem;"></div>
+      </div>
+    </section>
+
+  <section class="experience scroll-reveal">
+    <h2 style="text-align:center; margin-bottom:1.2rem;">Experience</h2>
+    <div class="project-cards-container" style="display: block; overflow: visible;">
+      <!-- Harman Connected Services -->
+      <div class="project-card fade-in">
+        <h3 class="project-name">Associate Engineer II, Software Engineering</h3>
+        <div class="project-summary">Harman Connected Services Pvt. Ltd. (Bangalore)</div>
+        <div class="project-summary"><b>Project:</b> PSA – STL (Automotive Security Team)</div>
+        <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Feb 2024 – Present</div>
+        <ul class="project-features">
+          <li class="project-feature-item">Designed and implemented functionalities for Android-based Automotive systems, improving integrity and reliability across deployments.</li>
+          <li class="project-feature-item">Contributed to the integration process of the TimeSecure protocol by analyzing HAL service behavior and assisting in flow validation across system components.</li>
+          <li class="project-feature-item">Optimized integrity-checking logic, resolving SOP-critical issues and enhancing security compliance.</li>
+          <li class="project-feature-item">Led defect triaging and resolution cycles, collaborating with cross-functional teams to unblock features and deliver timely fixes.</li>
+        </ul>
+  <div class="exp-environment">C++, STL, AOSP, HAL, Java, Linux, Android Native, Git, Multithreading, Code Sonar, Valgrind</div>
+      </div>
+      <!-- Hi-Tech Robotic Systemz -->
+      <div class="project-card fade-in">
+        <h3 class="project-name">Research Engineer</h3>
+        <div class="project-summary">The Hi-Tech Robotic Systemz Ltd. (Gurugram)</div>
+        <div class="project-summary"><b>Project:</b> Novus Aware – Attention & Behavior Monitoring (ADAS)</div>
+        <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Jun 2022 – Jan 2024</div>
+        <ul class="project-features">
+          <li class="project-feature-item">Heading ADAS R&D on Android platform, integrating innovative tech for enhanced driver behavior through pioneering Driver Monitoring State application. Committed to preemptively alerting drivers about risky behaviors for safer road.</li>
+          <li class="project-feature-item">Developed FOTA upgrade protocol for ADAS using UART communication protocol, ensuring seamless and efficient updates for connected devices.</li>
+          <li class="project-feature-item">Integrated AWS IoT services with ADAS IoT-enabled devices, enabling secure and scalable communication between devices and the cloud platform.</li>
+        </ul>
+  <div class="exp-environment">C, C++, STL, Java, Linux, Shell Scripting, Android SDK, Android NDK, IPC, SFTP, CAN/FOTA, AWS IoT, Git, Python, Multithreading, MQTT, Docker, S3 bucket, Valgrind, Data Structures and Algorithms</div>
+        <div style="margin-top:1.5rem;">
+          <h4 class="project-name">Intern</h4>
+          <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Mar 2021 – Jun 2022</div>
+          <ul class="project-features">
+            <li class="project-feature-item">Implemented driver image upload, critical warning notifications, power tampering alerts, and automated warning video features. Facilitated seamless transfer of corresponding metadata between device and Linux host over Wi-Fi utilizing the secure SFTP protocol with RSA authentication.</li>
+            <li class="project-feature-item">Designed and developed advanced ADAS application for Android platform and modules from technical requirement with cross-functional teams to define, design, and launch new features. (Enhancing Production Efficiency with 500%).</li>
+            <li class="project-feature-item">Developed the Real-time data uploading solution for the data to cloud and Leveraged the JITR of AWS-IoT.</li>
+          </ul>
+          <div class="exp-environment">C, C++, STL, Java, Linux, Shell Scripting, Android SDK, TCP, SFTP, CAN/FOTA, Docker, AWS IoT, Git, Python, Doxygen, Valgrind, S3 bucket, Data Structures and Algorithms</div>
+        </div>
+      </div>
+      <!-- New Software Solution LLP -->
+      <div class="project-card fade-in">
+        <h3 class="project-name">Android Intern</h3>
+        <div class="project-summary">New Software Solution LLP (Bhopal)</div>
+        <div class="exp-tenure" style="margin-bottom:0.5rem; font-style:italic;">Aug 2020 – Jan 2021</div>
+        <ul class="project-features">
+          <li class="project-feature-item">Chalo Pandit Ji - Built a location-based Android app enabling users to book verified Hindu priests for local religious services.</li>
+          <li class="project-feature-item">Self-help Audio - Redesigned and enhanced a mobile app for streaming audiobooks authored by independent writers.</li>
+          <li class="project-feature-item">Photo-Copy - Developed a native app for placing online print orders and filling applications via nearby trusted vendors.</li>
+        </ul>
+  <div class="exp-environment">Java, Android Studio, Rest APIs, Postman, Adobe XD, Firebase, Jira, Agile, Data Structures and Algorithms</div>
+      </div>
+    </div>
+    </div>
+    </div>
+  <section class="projects scroll-reveal">
+      <h2 style="text-align:center; margin-bottom:1.2rem;">Projects</h2>
+      <div class="project-cards-container" style="display: block; overflow: visible;">
+        <!-- SFTPApp -->
+        <div class="project-card fade-in">
+          <h3 class="project-name">SFTPApp</h3>
+          <div class="project-summary">A modern Android SFTP client for secure file browsing and downloading, designed for simplicity and privacy.</div>
+          <ul class="project-features">
+            <li class="project-feature-item">No intrusive permission dialogs—uses Android’s Storage Access Framework for seamless file/folder access.</li>
+            <li class="project-feature-item">Supports both dark and light themes, with UI elements adapting to system settings.</li>
+            <li class="project-feature-item">Clean Material Design interface for intuitive navigation.</li>
+            <li class="project-feature-item">Secure SFTP file browsing powered by JSch.</li>
+            <li class="project-feature-item">Multi-file selection and batch downloading with real-time progress indicators.</li>
+            <li class="project-feature-item">Download progress dialog shows percentage, file name, and file count.</li>
+            <li class="project-feature-item">Robust error handling for large files, connection issues, and download errors.</li>
+          </ul>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+        <!-- Crypto Android App -->
+        <div class="project-card fade-in">
+          <h3 class="project-name">Crypto Android App</h3>
+          <div class="project-summary">A modern Android application for secure text and file encryption/decryption using industry-standard cryptographic algorithms. Designed with a beautiful, theme-aware UI and robust security features.</div>
+          <ul class="project-features">
+            <li class="project-feature-item">Multiple Encryption Algorithms: AES-GCM (recommended, authenticated encryption), AES-CBC (legacy, for compatibility), RSA-OAEP (hybrid encryption for small data/keys), AES-PBKDF2 (password-based encryption)</li>
+            <li class="project-feature-item">Password-Based Encryption: Securely encrypt and decrypt text/files using a user-supplied password (PBKDF2).</li>
+            <li class="project-feature-item">File Encryption/Decryption: Encrypt and decrypt any file type, including images and documents, while preserving the original file format.</li>
+            <li class="project-feature-item">Clipboard Support: Easily copy encrypted/decrypted output to the clipboard.</li>
+            <li class="project-feature-item">Theme Support: Beautiful light and dark mode with smooth theme toggle.</li>
+            <li class="project-feature-item">Security Tips Dialog: Built-in dialog with best practices and algorithm info for user education.</li>
+            <li class="project-feature-item">Modern UI: Responsive, clean design with Material Components and custom color palettes.</li>
+          </ul>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </section>
+
+  <section class="contact scroll-reveal">
+      <h2 style="text-align: center;">Contact</h2>
+      <div class="contact-content">
+        <table style="width:100%; border-collapse:separate; border-spacing:0 12px; font-size:1.08em; margin:0 auto;">
+          <tbody>
+            <tr>
+              <td class="contact-label">Email</td>
+              <td class="contact-value"><a href="mailto:aditya.shakya@email.com" class="contact-link">aditya.shakya@email.com</a></td>
+            </tr>
+            <tr>
+              <td class="contact-label">LinkedIn</td>
+              <td class="contact-value"><a href="https://www.linkedin.com/in/aditya-shakya/" target="_blank" rel="noopener noreferrer" class="contact-link">aditya-shakya</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <script>
+  // Star background animation
+  function createStars(numStars = 80) {
+    const starBg = document.querySelector('.star-bg');
+    if (!starBg) return;
+    starBg.innerHTML = '';
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDelay = (Math.random() * 2) + 's';
+      starBg.appendChild(star);
+    }
+  }
+  createStars();
+  window.addEventListener('resize', () => createStars());
+  // Theme toggle logic
+  // Hero Section Particle Animation
+  function pageParticles() {
+    const canvas = document.getElementById('page-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+    const particles = Array.from({length: 60}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 2.5 + 1.5,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.2,
+      color: Math.random() > 0.7 ? '#ffe066' : '#007bff'
+    }));
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = 0.7;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+    window.addEventListener('resize', () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    });
+  }
+  pageParticles();
+
+  // Typewriter effect for ADITYA SHAKYA
+  function typeWriter(text, el, speed = 110) {
+    let i = 0;
+    function type() {
+      if (i <= text.length) {
+        el.innerHTML = text.substring(0, i) + '<span style="border-right:2px solid #007bff;">&nbsp;</span>';
+        i++;
+        setTimeout(type, speed);
+      } else {
+        el.innerHTML = text + '<span class="typewriter-cursor">&nbsp;</span>';
+      }
+    }
+    type();
+  }
+  const typewriterEl = document.getElementById('typewriter-head');
+  if (typewriterEl) {
+    typeWriter('ADITYA SHAKYA', typewriterEl, 110);
+  }
+
+  // Scroll reveal for sections
+  function revealOnScroll() {
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
+  const toggleBtn = document.getElementById('theme-toggle');
+  const thumb = document.getElementById('toggle-thumb');
+  function setTheme(dark) {
+    document.body.classList.toggle('dark', dark);
+    toggleBtn.classList.toggle('dark', dark);
+    if (dark) {
+      thumb.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" fill="#ffe066"/><path d="M11 3v2M11 17v2M4.93 4.93l1.41 1.41M15.66 15.66l1.41 1.41M3 11h2M17 11h2M4.93 17.07l1.41-1.41M15.66 6.34l1.41-1.41" stroke="#222" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    } else {
+      thumb.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" fill="#222"/><path d="M15 11a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" fill="#fff"/></svg>';
+    }
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+  // Initial theme from localStorage or system
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+  setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+  toggleBtn.addEventListener('click', () => {
+    setTheme(!document.body.classList.contains('dark'));
+  });
+</script>
+
+<!-- Footer with Social Links -->
+<footer style="width:100%; background:rgba(255,255,255,0.95); color:#222; text-align:center; padding:2rem 0; margin-top:3rem; box-shadow:0 -2px 16px rgba(0,0,0,0.08);">
+  <div style="font-size:1.2rem; margin-bottom:1rem;">Connect with me:</div>
+  <a href="mailto:aditya.shakya@email.com" style="margin:0 1.5rem; color:#EA4335; text-decoration:none; font-size:2.6rem; vertical-align:middle;" title="Gmail">
+    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#fff"/><path d="M8 14v16c0 1.65 1.35 3 3 3h22c1.65 0 3-1.35 3-3V14c0-1.65-1.35-3-3-3H11c-1.65 0-3 1.35-3 3zm3 0l11 8.5L36 14" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14l11 8.5L36 14" stroke="#34A853" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 33V14l11 8.5L36 14v19" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <a href="https://www.linkedin.com/in/aditya-shakya/" target="_blank" rel="noopener" style="margin:0 1.5rem; color:#0077b5; text-decoration:none; font-size:2.6rem; vertical-align:middle;" title="LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#fff"/><path d="M15 19v12m0-12a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm9 12v-6c0-1.65 1.35-3 3-3s3 1.35 3 3v6m-14 0h14" stroke="#0077b5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <a href="https://github.com/ADITYA-SHAKYA04" target="_blank" rel="noopener" style="margin:0 1.5rem; color:#222; text-decoration:none; font-size:2.6rem; vertical-align:middle;" title="GitHub">
+    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#fff"/><path d="M22 8c-7.59 0-13.75 6.16-13.75 13.75 0 6.07 3.98 11.23 9.5 13.05.7.13.95-.31.95-.68v-2.34c-3.87.84-4.7-1.84-4.7-1.84-.63-1.59-1.54-2.02-1.54-2.02-1.26-.87.1-.86.1-.86 1.4.1 2.14 1.44 2.14 1.44 1.25 2.14 3.29 1.53 4.09 1.16.13-.91.49-1.53.89-1.88-3.12-.35-6.41-1.56-6.41-6.97 0-1.54.55-2.8 1.45-3.8-.14-.36-.63-1.8.14-3.65 0 0 1.18-.39 3.85 1.41A13.38 13.38 0 0 1 22 15.7c1.19.006 2.39.17 3.51.5 2.67-1.8 3.85-1.41 3.85-1.41.77 1.85.28 3.29.14 3.65.9 1 .45 2.26.45 3.8 0 5.41-3.29 6.62-6.41 6.97.51.44.95 1.32.95 2.65v3.93c0 .38.25.81.96.68 5.51-1.82 9.49-6.98 9.49-13.05C35.75 14.16 29.59 8 22 8z" fill="#222"/></svg>
+  </a>
+</footer>
+</body>
 </html>
