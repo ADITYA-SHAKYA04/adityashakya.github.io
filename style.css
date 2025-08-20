@@ -1,3 +1,113 @@
+/* Blinking typewriter cursor for JS effect */
+.typewriter-cursor {
+  display: inline-block;
+  border-right: 2px solid #007bff;
+  animation: blink-cursor 0.8s step-end infinite alternate;
+  margin-left: 2px;
+}
+@keyframes blink-cursor {
+  0%, 100% { border-color: #007bff; }
+  50% { border-color: transparent; }
+}
+.typewriter-effect {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid #007bff;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  width: 0;
+  animation:
+    typing 3s steps(13, end) forwards,
+    blink-cursor 0.8s step-end infinite alternate;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 13ch }
+}
+@keyframes blink-cursor {
+  0%, 100% { border-color: #007bff; }
+  50% { border-color: transparent; }
+}
+.dark-toggle.modern-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 100;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  width: 60px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.dark-toggle.modern-toggle:active .toggle-thumb {
+  transform: scale(0.92);
+}
+.toggle-track {
+  position: relative;
+  width: 60px;
+  height: 36px;
+  background: linear-gradient(90deg, #e0e0e0 60%, #ffe066 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  transition: background 0.3s;
+}
+.dark-toggle.modern-toggle.dark .toggle-track {
+  background: linear-gradient(90deg, #222 60%, #ffe066 100%);
+}
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #222;
+  transition: left 0.35s cubic-bezier(.4,0,.2,1), background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.dark-toggle.modern-toggle .toggle-thumb {
+  left: 2px;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  transform: rotate(0deg) scale(1);
+}
+.dark-toggle.modern-toggle.dark .toggle-thumb {
+  left: 26px;
+  background: #ffe066;
+  color: #222;
+  box-shadow: 0 2px 16px rgba(255,224,102,0.18);
+  transform: rotate(-20deg) scale(1.08);
+}
+.toggle-track {
+  position: relative;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s cubic-bezier(.4,0,.2,1), background 0.3s, color 0.3s, transform 0.3s;
+}
+.dark-toggle.modern-toggle .toggle-thumb {
+  left: 2px;
+}
+.dark-toggle.modern-toggle.dark .toggle-thumb {
+  left: 26px;
+}
 /* --- Original style.css from src/style.css --- */
 
 .projects {
@@ -573,11 +683,15 @@ body {
 }
 
 body.dark {
-  background: #181a1b;
+  background: radial-gradient(ellipse at top left, #23272b 0%, #181a1b 100%);
   color: #f8f9fa;
+}
+body.dark .star {
+  opacity: 0.5;
 }
 
 
+/* Modern theme toggle styles */
 .dark-toggle.modern-toggle {
   position: fixed;
   top: 1.2rem;
@@ -588,46 +702,50 @@ body.dark {
   outline: none;
   cursor: pointer;
   padding: 0;
-  width: 56px;
-  height: 32px;
+  width: 60px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .toggle-track {
-  width: 56px;
-  height: 32px;
-  background: #e0e0e0;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 60px;
+  height: 36px;
+  background: linear-gradient(90deg, #e0e0e0 60%, #ffe066 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   display: flex;
   align-items: center;
   transition: background 0.3s;
 }
 .dark-toggle.modern-toggle.dark .toggle-track {
-  background: #222;
+  background: linear-gradient(90deg, #222 60%, #ffe066 100%);
 }
 .toggle-thumb {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   position: relative;
   left: 2px;
-  transition: left 0.3s, background 0.3s;
+  transition: left 0.3s, background 0.3s, color 0.3s, transform 0.3s;
 }
 .dark-toggle.modern-toggle .toggle-thumb {
   left: 2px;
+  color: #222;
+  background: #fff;
+  transform: rotate(0deg);
 }
 .dark-toggle.modern-toggle.dark .toggle-thumb {
   left: 26px;
-  background: #333;
-  color: #ffe066;
+  background: #ffe066;
+  color: #222;
+  transform: rotate(-20deg) scale(1.1);
 }
 
 .animated-section {

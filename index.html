@@ -6,7 +6,8 @@
   <title>Aditya Shakya | Profile</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+  <body>
+    <div class="star-bg"></div>
   <button id="theme-toggle" class="dark-toggle modern-toggle" aria-label="Toggle dark mode">
     <span class="toggle-track">
       <span class="toggle-thumb" id="toggle-thumb">🌙</span>
@@ -15,12 +16,17 @@
   <div id="root">
     <section class="hero">
       <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h1 class="typewriter" style="text-align: center;">ADITYA SHAKYA<span class="typewriter-cursor">|</span></h1>
+    <div style="display: flex; justify-content: center; padding-top: 2.5rem;">
+            <h1 style="text-align: center; margin: 0; font-size: 2.8rem;">
+              <span id="typewriter-head" style="font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace; letter-spacing:2px;"></span>
+            </h1>
+          </div>
         <h2 style="text-align: center;">C++ / Android Developer</h2>
         <p style="margin-top: 4rem; padding-left: 2rem; padding-right: 2rem; text-align: center; max-width: 700px;">
           Experienced C++ and Android Developer with 3+ years in Android development and system-level programming. Skilled in building scalable automotive and mobile solutions using C++, Android SDK/NDK, and Java. Strong in cross-platform optimization, cloud integration, and leading development efforts. Seeking a role focused on practical solutions and continuous growth.
         </p>
-        <a href="/AdityaShakya_3yrsC++Android.pdf" download class="download-resume-btn" style="margin-left: auto; margin-right: auto;">Download Resume</a>
+  <a href="/AdityaShakya_3yrsC++Android.pdf" download class="download-resume-btn" style="margin-left: auto; margin-right: auto;">Download Resume</a>
+  <div style="height: 2.5rem;"></div>
       </div>
     </section>
 
@@ -132,14 +138,52 @@
         </table>
       </div>
   </div>
-<script>
+  <script>
+  // Star background animation
+  function createStars(numStars = 80) {
+    const starBg = document.querySelector('.star-bg');
+    if (!starBg) return;
+    starBg.innerHTML = '';
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDelay = (Math.random() * 2) + 's';
+      starBg.appendChild(star);
+    }
+  }
+  createStars();
+  window.addEventListener('resize', () => createStars());
   // Theme toggle logic
+  // Typewriter effect for ADITYA SHAKYA
+  function typeWriter(text, el, speed = 110) {
+    let i = 0;
+    function type() {
+      if (i <= text.length) {
+        el.innerHTML = text.substring(0, i) + '<span style="border-right:2px solid #007bff;">&nbsp;</span>';
+        i++;
+        setTimeout(type, speed);
+      } else {
+        el.innerHTML = text + '<span class="typewriter-cursor">&nbsp;</span>';
+      }
+    }
+    type();
+  }
+  const typewriterEl = document.getElementById('typewriter-head');
+  if (typewriterEl) {
+    typeWriter('ADITYA SHAKYA', typewriterEl, 110);
+  }
   const toggleBtn = document.getElementById('theme-toggle');
   const thumb = document.getElementById('toggle-thumb');
   function setTheme(dark) {
     document.body.classList.toggle('dark', dark);
-    thumb.textContent = dark ? '☀️' : '🌙';
     toggleBtn.classList.toggle('dark', dark);
+    if (dark) {
+      thumb.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" fill="#ffe066"/><path d="M11 3v2M11 17v2M4.93 4.93l1.41 1.41M15.66 15.66l1.41 1.41M3 11h2M17 11h2M4.93 17.07l1.41-1.41M15.66 6.34l1.41-1.41" stroke="#222" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    } else {
+      thumb.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" fill="#222"/><path d="M15 11a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" fill="#fff"/></svg>';
+    }
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }
   // Initial theme from localStorage or system
