@@ -278,10 +278,12 @@ footer a:hover { color: #0056b3 !important; }
   overflow: visible;
 }
 .project-cards-container {
-  display: block;
-  overflow: visible;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
   background: transparent;
 }
 /* Project card styles for light and dark mode with hover animation */
@@ -291,15 +293,19 @@ footer a:hover { color: #0056b3 !important; }
   border-radius: 18px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.18), 0 2px 16px rgba(0,0,0,0.12);
   padding: 28px;
-  margin-bottom: 2.5rem;
-  margin-top: 1.5rem;
-  transition: background 0.3s, color 0.3s, box-shadow 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1);
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s, box-shadow 0.2s ease, transform 0.2s ease;
 }
-/* .project-card:hover intentionally left empty for future hover effects */
+/* Subtle hover effect */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
 body.dark .project-card:hover {
-  box-shadow: 0 32px 64px rgba(255,255,255,0.18), 0 2px 16px rgba(255,255,255,0.10);
-  box-shadow: 0 32px 64px rgba(0,0,0,0.28), 0 2px 16px rgba(0,0,0,0.12);
-  transform: translateY(-32px) scale(1.12) rotate(-2deg);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 body.dark .project-card {
   background: #23272b;
@@ -314,12 +320,32 @@ body.dark .project-card {
 .project-features {
   margin-bottom: 0.5rem;
   padding-left: 0.5rem;
+  flex-grow: 1;
 }
 .project-feature-item {
   list-style-type: disc;
   margin-left: 1.2em;
-  font-style: italic;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
+
+/* Environment section at bottom with consistent spacing */
+.exp-environment {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  font-size: 0.9em;
+  font-style: italic;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body.dark .exp-environment {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
 .project-link {
   color: #007bff;
   font-weight: bold;
@@ -336,12 +362,51 @@ body.dark .project-link {
 body.dark .project-link:hover {
   color: #ffe066;
 }
+
+/* Themed button styling for project and blog links */
+/* Light theme - Blue buttons */
+.project-link, .blog-link {
+  color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.project-link:hover, .blog-link:hover {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+/* Dark theme - Yellow buttons */
+body.dark .project-link,
+body.dark .blog-link {
+  color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+
+body.dark .project-link:hover,
+body.dark .blog-link:hover {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
 /* Project card name color for light and dark mode */
 .project-name {
-  color: #007bff;
+  color: #007bff !important;
 }
+
+/* Specific override for AOSP project */
+.project-name:contains("AOSP HAL Demo"),
+.project-name:has-text("AOSP HAL Demo"),
+h3.project-name {
+  color: #007bff !important;
+}
+
 body.dark .project-name {
-  color: #ffe066;
+  color: #ffe066 !important;
+}
+
+body.dark .project-name:contains("AOSP HAL Demo"),
+body.dark .project-name:has-text("AOSP HAL Demo"),
+body.dark h3.project-name {
+  color: #ffe066 !important;
 }
 /* Konami code Easter egg toast */
 .easter-egg-toast {
@@ -622,21 +687,21 @@ body.dark .download-resume-btn:hover {
   padding: 8px 0;
 }
 .contact-link {
-  color: #fff;
+  color: #007bff;
   text-decoration: none;
 }
 body.dark .contact-link {
-  color: #fff;
+  color: #ffe066;
 }
 body:not(.dark) .contact-link {
-  color: #111111;
-/* removed stray closing brace */
+  color: #007bff;
+}
 /* Contact table left column style */
 .contact-label {
   padding: 8px 0;
   font-weight: bold;
   color: #007bff;
-/* removed stray closing brace */
+}
 
 body.dark .contact-label {
   padding: 8px 0;
@@ -674,7 +739,6 @@ body.dark .exp-environment {
   color: #222;
   transition: background 0.3s, color 0.3s;
 }
-}
 body.dark .experience-card {
   background: #2d3238;
   color: #f8f9fa;
@@ -704,8 +768,6 @@ body.dark .resume-content table td:first-child {
 body.dark .experience li .exp-tenure {
   color: #ffffff;
   font-style: italic;
-}
-  color: #111111;
 }
 /* Modern experience card style */
 /* Modern experience card style with extra padding and rounded corners */
@@ -1012,7 +1074,244 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Uniform card styling for contact section */
+.contact-card {
+  background: #fff;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+body.dark .contact-card {
+  background: #23272b !important;
+  color: #f8f9fa !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25) !important;
+}
+
+body.dark .contact-content table {
+  color: #f8f9fa !important;
+}
+
+body.dark .contact-content table td {
+  color: inherit !important;
+}
+
+/* Base styling for all tech stack tags */
+.project-card p span {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 2px 4px 2px 0;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  background: rgba(74, 144, 226, 0.1);
+  color: #2980b9;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode for tech stack tags */
+body.dark .project-card p span {
+  background: rgba(255, 224, 102, 0.2);
+  color: #ffe066;
+  border: 1px solid rgba(255, 224, 102, 0.3);
+}
+
+/* Tech tags styling */
+.project-card span[style*="background: rgba"] {
+  display: inline-block;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.project-card span[style*="background: rgba"]:hover {
+  transform: scale(1.05);
+}
+
+/* Tech tags base styling */
+.project-card span[style*="background: rgba(255, 224, 102, 0.15)"],
+span[style*="background: rgba(255, 224, 102, 0.15)"] {
+  background: rgba(0, 123, 255, 0.1) !important;
+  color: #007bff !important;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  font-weight: 500;
+}
+
+/* Light mode tech tags - convert yellow to blue */
+.project-card span[style*="background: rgba(255, 224, 102, 0.15)"],
+.project-card span[style*="color: #ffe066"],
+span[style*="background: rgba(255, 224, 102, 0.15)"],
+span[style*="color: #ffe066"] {
+  background: rgba(0, 123, 255, 0.1) !important;
+  color: #007bff !important;
+}
+
+/* Dark mode tech tags */
+body.dark .project-card span[style*="background: rgba(40, 167, 69, 0.1)"] {
+  background: rgba(79, 215, 104, 0.2) !important;
+  color: #4fd768 !important;
+}
+
+body.dark .project-card span[style*="background: rgba(0, 123, 255, 0.1)"] {
+  background: rgba(102, 179, 255, 0.2) !important;
+  color: #66b3ff !important;
+}
+
+body.dark .project-card span[style*="background: rgba(220, 53, 69, 0.1)"] {
+  background: rgba(255, 107, 129, 0.2) !important;
+  color: #ff6b81 !important;
+}
+
+body.dark .project-card span[style*="background: rgba(255, 224, 102, 0.15)"],
+body.dark .project-card span[style*="color: #ffe066"],
+body.dark span[style*="background: rgba(255, 224, 102, 0.15)"],
+body.dark span[style*="color: #ffe066"] {
+  background: rgba(255, 224, 102, 0.2) !important;
+  color: #ffe066 !important;
+  border: 1px solid rgba(255, 224, 102, 0.3) !important;
+  font-weight: 500;
+}
+
+/* Footer Styling */
+.site-footer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+body.dark .site-footer {
+  background: rgba(35, 39, 43, 0.95);
+  color: #f8f9fa;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.25);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20rem;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.05);
+  margin: 0 0.5rem;
+}
+
+body.dark .social-link {
+  background: rgba(248, 249, 250, 0.1) !important;
+  color: #f8f9fa !important;
+}
+
+body.dark .social-link,
+body.dark .social-link *,
+body.dark .social-link svg,
+body.dark .social-link svg path {
+  color: #ffe066 !important;
+  fill: #ffe066 !important;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .social-link:hover {
+  box-shadow: 0 10px 25px rgba(248, 249, 250, 0.2) !important;
+  background: rgba(248, 249, 250, 0.15) !important;
+  transform: translateY(-4px) scale(1.05);
+}
+
+.gmail-link {
+  color: #000000;
+}
+
+.linkedin-link {
+  color: #000000;
+}
+
+.github-link {
+  color: #000000;
+}
+
+body.dark .gmail-link,
+body.dark .linkedin-link,
+body.dark .github-link {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+body.dark .gmail-link svg,
+body.dark .linkedin-link svg,
+body.dark .github-link svg {
+  fill: #ffffff !important;
+}
+
+body.dark .gmail-link svg path,
+body.dark .linkedin-link svg path,
+body.dark .github-link svg path {
+  fill: #ffffff !important;
+}
+
+.social-link svg {
+  transition: transform 0.3s ease;
+  fill: #000000;
+}
+
+.social-link svg path {
+  fill: #000000;
+}
+
+body.dark .social-link svg,
+body.dark .social-link svg path {
+  fill: #ffffff !important;
+}
+
+body.dark .social-links svg,
+body.dark .social-links svg path {
+  fill: #ffc107 !important;
+  stroke: #ffc107 !important;
+}
+
+body.dark .social-link:hover svg,
+body.dark .social-link:hover svg path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.social-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Project name colors for featured project */
+.project-name[style*="color: #28a745"] {
+  font-weight: 600;
+}
+
+body.dark .project-name[style*="color: #28a745"] {
+  color: #4fd768 !important;
+}
+
 @media (max-width: 600px) {
   .hero-content h1 { font-size: 2rem; }
   section { padding: 16px 8px; }
+  
+  /* Stack tech tags on mobile */
+  .project-card span[style*="background: rgba"] {
+    margin-bottom: 8px;
+    display: inline-block;
+  }
 }

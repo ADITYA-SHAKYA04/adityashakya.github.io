@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aditya Shakya | Profile</title>
+  <title>Aditya Sha          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <a href="https://github.com/ADITYA-SHAKYA04/SFTP-Exchange" class="project-link" target="_blank" rel="noopener">View Project</a>
+            <a href="blog.html#sftp-exchange-blog" class="blog-link" style="color: #007bff; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #007bff; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">📖 Read Blog</a>
+          </div>| Profile</title>
   <link rel="stylesheet" href="style.css">
 </head>
   <body>
@@ -19,8 +22,9 @@
   <a href="#hero">Home</a>
   <a href="#skills">Skills</a>
   <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <a href="#projects">Projects</a>
+  <a href="blog.html">Blog</a>
+  <a href="#contact">Contact</a>
   </nav>
   <div id="root" style="position: relative; z-index: 2;">
   <section id="hero" class="hero scroll-reveal">
@@ -32,7 +36,7 @@
           </div>
         <h2 style="text-align: center;">C++ / Android Developer</h2>
   <p style="margin-top: 4rem; padding-left: 2rem; padding-right: 2rem; text-align: center; max-width: 700px; font-size: 1.25rem;">
-          Experienced C++ and Android Developer with 3+ years in Android development and system-level programming. Skilled in building scalable automotive and mobile solutions using C++, Android SDK/NDK, and Java. Strong in cross-platform optimization, cloud integration, and leading development efforts. Seeking a role focused on practical solutions and continuous growth.
+          Experienced C++ and Android Developer with 3+ years building scalable automotive and mobile solutions. Expert in system programming, Android development, and educational project implementation. Passionate about creating practical applications and learning resources, from secure file transfer solutions to Android system programming demonstrations.
         </p>
   <a href="https://raw.githubusercontent.com/ADITYA-SHAKYA04/adityashakya.github.io/gh-pages/AdityaShakya_3yrsC%2B%2BAndroid.pdf" download class="download-resume-btn" style="margin-left: auto; margin-right: auto;">Download Resume</a>
   <div style="height: 2.5rem;"></div>
@@ -40,11 +44,8 @@
     </section>
   <section id="skills" class="skills scroll-reveal">
     <h2 style="text-align:center; margin-bottom:1.2rem;">Skills</h2>
-        </div>
-    </div>
-
-    <div class="skills-overview" style="margin-top:2.5rem;">
-      <div class="skill-card" style="max-width:600px;margin:0 auto;padding:1.2rem 1.5rem;border-radius:1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:1.08rem;">
+    <div class="skills-overview" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2.5rem; padding: 0 1rem;">
+      <div class="skill-card" style="max-width:800px; width: 100%; padding:1.2rem 1.5rem;border-radius:1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:1.08rem;">
         <table style="width:100%; border-collapse:separate; border-spacing:0px 12px; font-size:1.08em; margin:0px auto;">
           <tbody>
             <tr><td style="font-weight:600; padding:0.5rem 1.2rem;">Languages</td><td style="padding:0.5rem 1.2rem;">C, C++, Java</td></tr>
@@ -64,7 +65,7 @@
 
   <section id="experience" class="experience scroll-reveal">
     <h2 style="text-align:center; margin-bottom:1.2rem;">Experience</h2>
-    <div class="project-cards-container" style="display: block; overflow: visible;">
+    <div class="project-cards-container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2.5rem; padding: 0 1rem;">
       <!-- Harman Connected Services -->
       <div class="project-card fade-in">
         <h3 class="project-name">Associate Engineer II, Software Engineering</h3>
@@ -119,11 +120,37 @@
     </div>
   <section id="projects" class="projects scroll-reveal">
       <h2 style="text-align:center; margin-bottom:1.2rem;">Projects</h2>
-      <div class="project-cards-container" style="display: block; overflow: visible;">
+      <div class="project-cards-container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2.5rem; padding: 0 1rem;">
+        <!-- AOSP HAL Demo -->
+        <div class="project-card fade-in">
+          <h3 class="project-name">🚀 AOSP HAL Demo: Educational Android System Programming</h3>
+          <div class="project-summary">Educational demonstration of Android system programming concepts through JNI/HAL integration. Features two complementary learning projects: FlashTune (pure JNI/HAL) and PulsePlay (hybrid approach) for understanding Android internals.</div>
+          <ul class="project-features">
+            <li class="project-feature-item"><strong>FlashTune:</strong> Pure JNI/HAL LED control demonstration without Android APIs - direct sysfs interface interaction for educational purposes</li>
+            <li class="project-feature-item"><strong>PulsePlay:</strong> Hybrid haptics implementation showing both educational JNI/HAL path and functional Android API usage</li>
+            <li class="project-feature-item"><strong>Educational Architecture:</strong> MainActivity → LedManager → JNI Bridge → HAL → sysfs interface</li>
+            <li class="project-feature-item"><strong>JNI Integration:</strong> Native method declarations and library loading with proper C++ bridging</li>
+            <li class="project-feature-item"><strong>HAL Concepts:</strong> Hardware abstraction principles with CMake build system integration</li>
+            <li class="project-feature-item"><strong>Learning Focus:</strong> Understanding Android system programming trade-offs and architectural patterns</li>
+            <li class="project-feature-item"><strong>Build System:</strong> Android NDK with CMake for native library compilation and JNI integration</li>
+          </ul>
+          <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">C++</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">Java</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">JNI</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">HAL</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">Android NDK</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em;">Educational</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/ADITYA-SHAKYA04/aosp-hal-demo" class="project-link" target="_blank" rel="noopener" style="color: #28a745; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #28a745; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">🔗 View Project</a>
+            <a href="blog.html#aosp-hal-blog" class="blog-link" style="color: #28a745; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #28a745; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">📖 Read Blog</a>
+          </div>
+        </div>
         <!-- SFTPApp -->
         <div class="project-card fade-in">
-          <h3 class="project-name">SFTPApp</h3>
-          <div class="project-summary">A modern Android SFTP client for secure file browsing and downloading, designed for simplicity and privacy.</div>
+          <h3 class="project-name">📁 SFTP Exchange</h3>
+          <div class="project-summary">A modern, secure Android application for SFTP file transfers with Material Design UI. Built with clean Android development practices, focusing on security, simplicity, and user privacy.</div>
           <ul class="project-features">
             <li class="project-feature-item">No intrusive permission dialogs—uses Android’s Storage Access Framework for seamless file/folder access.</li>
             <li class="project-feature-item">Supports both dark and light themes, with UI elements adapting to system settings.</li>
@@ -133,30 +160,50 @@
             <li class="project-feature-item">Download progress dialog shows percentage, file name, and file count.</li>
             <li class="project-feature-item">Robust error handling for large files, connection issues, and download errors.</li>
           </ul>
-          <a href="https://github.com/ADITYA-SHAKYA04/SFTPExchange" class="project-link" target="_blank" rel="noopener">View Project</a>
+          <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">Android</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">Java</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">SFTP</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">JSch</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em;">Material Design</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/ADITYA-SHAKYA04/SFTPExchange" class="project-link" target="_blank" rel="noopener" style="color: #007bff; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #007bff; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">🔗 View Project</a>
+            <a href="blog.html#sftp-exchange-blog" class="blog-link" style="color: #007bff; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #007bff; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">📖 Read Blog</a>
+          </div>
         </div>
         <!-- CipherGuard Android App -->
         <div class="project-card fade-in">
-          <h3 class="project-name">CipherGuard Android App</h3>
-          <div class="project-summary">A modern Android application for secure text and file encryption/decryption using industry-standard cryptographic algorithms. Designed with a beautiful, theme-aware UI and robust security features.</div>
+          <h3 class="project-name">🔐 CipherGuard - Enterprise Encryption</h3>
+          <div class="project-summary">Production-ready Android encryption application with enterprise-grade security features. Built with Material Design 3, Android KeyStore integration, and comprehensive cryptographic implementations for secure text and file encryption.</div>
           <ul class="project-features">
-            <li class="project-feature-item">Multiple Encryption Algorithms: AES-GCM (recommended, authenticated encryption), AES-CBC (legacy, for compatibility), RSA-OAEP (hybrid encryption for small data/keys), AES-PBKDF2 (password-based encryption)</li>
-            <li class="project-feature-item">Password-Based Encryption: Securely encrypt and decrypt text/files using a user-supplied password (PBKDF2).</li>
-            <li class="project-feature-item">File Encryption/Decryption: Encrypt and decrypt any file type, including images and documents, while preserving the original file format.</li>
-            <li class="project-feature-item">Clipboard Support: Easily copy encrypted/decrypted output to the clipboard.</li>
-            <li class="project-feature-item">Theme Support: Beautiful light and dark mode with smooth theme toggle.</li>
-            <li class="project-feature-item">Security Tips Dialog: Built-in dialog with best practices and algorithm info for user education.</li>
-            <li class="project-feature-item">Modern UI: Responsive, clean design with Material Components and custom color palettes.</li>
+            <li class="project-feature-item"><strong>Advanced Encryption Algorithms:</strong> AES-GCM (256-bit authenticated), AES-CBC (256-bit PKCS7), RSA-OAEP (2048-bit hybrid), AES-PBKDF2 (100,000 iterations)</li>
+            <li class="project-feature-item"><strong>Hardware Security:</strong> Android KeyStore integration with TEE/SE protection, secure random generation for all cryptographic parameters</li>
+            <li class="project-feature-item"><strong>File Operations:</strong> Complete file encryption/decryption with MIME type preservation, automatic naming conventions, and format integrity</li>
+            <li class="project-feature-item"><strong>Modern UI/UX:</strong> Material Design 3 with dynamic theming, smooth animations, clipboard integration, and comprehensive error handling</li>
+            <li class="project-feature-item"><strong>Security Education:</strong> Built-in security tips dialog with algorithm information and cryptographic best practices</li>
+            <li class="project-feature-item"><strong>Production Ready:</strong> Industry-standard implementations, memory protection, secure cleanup, and comprehensive testing</li>
           </ul>
-          <a href="https://github.com/ADITYA-SHAKYA04/CipherGuard" class="project-link" target="_blank" rel="noopener">View Project</a>
+          <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">Java 11</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">Android KeyStore</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">AES-256</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em; margin-right: 8px;">RSA-2048</span>
+            <span style="background: rgba(255, 224, 102, 0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.9em;">Material Design 3</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/ADITYA-SHAKYA04/CipherGuard" class="project-link" target="_blank" rel="noopener" style="color: #dc3545; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #dc3545; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">🔗 View Project</a>
+            <a href="blog.html#cipherguard-blog" class="blog-link" style="color: #dc3545; text-decoration: none; font-weight: 500; padding: 8px 12px; border: 2px solid #dc3545; border-radius: 6px; font-size: 0.9em; transition: all 0.3s ease;">📖 Read Blog</a>
+          </div>
         </div>
       </div>
     </section>
 
   <section id="contact" class="contact scroll-reveal">
       <h2 style="text-align: center;">Contact</h2>
-      <div class="contact-content">
-  <table style="width:auto; border-collapse:separate; border-spacing:0 18px; font-size:1.08em; margin:0 auto; text-align:center; padding:0.5rem 0;">
+      <div class="contact-content" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2.5rem; padding: 0 1rem;">
+        <div class="contact-card" style="max-width: 800px; width: 100%; border-radius: 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 2rem;">
+          <table style="width:100%; border-collapse:separate; border-spacing:0 18px; font-size:1.08em; margin:0 auto; text-align:center; padding:0.5rem 0;">
           <tbody style="text-align:center;">
             <tr>
               <td class="contact-label" style="padding:0.5rem 1.2rem;">Email</td>
@@ -172,7 +219,9 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
+    </section>
   </div>
   <script>
   // Smooth scroll for nav links
@@ -300,17 +349,25 @@
 </script>
 
 <!-- Footer with Social Links -->
-<footer style="width:100%; background:rgba(255,255,255,0.95); color:#222; text-align:center; padding:2rem 0; margin-top:3rem; box-shadow:0 -2px 16px rgba(0,0,0,0.08);">
-  <div style="font-size:1.2rem; margin-bottom:1rem;">Connect with me:</div>
-  <a href="mailto:aditya.shakya@email.com" style="margin:0 1.5rem; color:#EA4335; text-decoration:none; font-size:2.6rem; vertical-align:middle;" title="Gmail">
-    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#fff"/><path d="M8 14v16c0 1.65 1.35 3 3 3h22c1.65 0 3-1.35 3-3V14c0-1.65-1.35-3-3-3H11c-1.65 0-3 1.35-3 3zm3 0l11 8.5L36 14" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14l11 8.5L36 14" stroke="#34A853" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 33V14l11 8.5L36 14v19" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  <a href="https://www.linkedin.com/in/aditya-shakya/" target="_blank" rel="noopener" style="margin:0 1.5rem; color:#0077b5; text-decoration:none; font-size:2.6rem; vertical-align:middle;" title="LinkedIn">
-    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#fff"/><path d="M15 19v12m0-12a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm9 12v-6c0-1.65 1.35-3 3-3s3 1.35 3 3v6m-14 0h14" stroke="#0077b5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  <a href="https://github.com/ADITYA-SHAKYA04" target="_blank" rel="noopener" style="margin:0 1.5rem; color:#222; text-decoration:none; font-size:2.6rem; vertical-align:middle;" title="GitHub">
-    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#fff"/><path d="M22 8c-7.59 0-13.75 6.16-13.75 13.75 0 6.07 3.98 11.23 9.5 13.05.7.13.95-.31.95-.68v-2.34c-3.87.84-4.7-1.84-4.7-1.84-.63-1.59-1.54-2.02-1.54-2.02-1.26-.87.1-.86.1-.86 1.4.1 2.14 1.44 2.14 1.44 1.25 2.14 3.29 1.53 4.09 1.16.13-.91.49-1.53.89-1.88-3.12-.35-6.41-1.56-6.41-6.97 0-1.54.55-2.8 1.45-3.8-.14-.36-.63-1.8.14-3.65 0 0 1.18-.39 3.85 1.41A13.38 13.38 0 0 1 22 15.7c1.19.006 2.39.17 3.51.5 2.67-1.8 3.85-1.41 3.85-1.41.77 1.85.28 3.29.14 3.65.9 1 .45 2.26.45 3.8 0 5.41-3.29 6.62-6.41 6.97.51.44.95 1.32.95 2.65v3.93c0 .38.25.81.96.68 5.51-1.82 9.49-6.98 9.49-13.05C35.75 14.16 29.59 8 22 8z" fill="#222"/></svg>
-  </a>
+<footer class="site-footer">
+  <div style="font-size:1.2rem; margin-bottom:1.5rem;">Connect with me:</div>
+  <div class="social-links">
+    <a href="mailto:aditya.shakya@email.com" class="social-link gmail-link" title="Gmail">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M36 32V12c0-2.21-1.79-4-4-4H8c-2.21 0-4 1.79-4 4v20c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4zM32 12l-12 8L8 12h24zM8 16l12 8 12-8v16H8V16z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/aditya-shakya/" target="_blank" rel="noopener" class="social-link linkedin-link" title="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M34.4 0H5.6C2.52 0 0 2.52 0 5.6v28.8C0 37.48 2.52 40 5.6 40h28.8c3.08 0 5.6-2.52 5.6-5.6V5.6C40 2.52 37.48 0 34.4 0zM12 32H8V16h4v16zM10 14c-1.33 0-2.4-1.07-2.4-2.4S8.67 9.2 10 9.2s2.4 1.07 2.4 2.4S11.33 14 10 14zM32 32h-4v-8c0-2.21-1.79-4-4-4s-4 1.79-4 4v8h-4V16h4v2.4c1.07-1.33 2.93-2.4 5.2-2.4 3.52 0 6.8 2.88 6.8 6.4V32z"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ADITYA-SHAKYA04" target="_blank" rel="noopener" class="social-link github-link" title="GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M20 0C8.95 0 0 8.95 0 20c0 8.84 5.74 16.34 13.71 19 1-.18 1.37-.43 1.37-.96v-3.38c-5.56 1.21-6.73-2.68-6.73-2.68-.91-2.31-2.22-2.93-2.22-2.93-1.82-1.24.14-1.22.14-1.22 2.01.14 3.07 2.07 3.07 2.07 1.79 3.06 4.69 2.18 5.84 1.67.18-1.3.7-2.18 1.27-2.68C11.79 28.35 7.18 26.64 7.18 18.95c0-2.18.78-3.96 2.07-5.36-.21-.51-.9-2.55.2-5.32 0 0 1.69-.54 5.53 2.06A19.19 19.19 0 0 1 20 9.5c1.71.01 3.43.23 5.04.68 3.84-2.6 5.53-2.06 5.53-2.06 1.1 2.77.41 4.81.2 5.32 1.29 1.4 2.07 3.18 2.07 5.36 0 7.69-4.61 9.4-9 9.9.71.61 1.34 1.82 1.34 3.67v5.44c0 .53.37 1.14 1.38.95C34.26 36.34 40 28.84 40 20 40 8.95 31.05 0 20 0z"/>
+      </svg>
+    </a>
+  </div>
 </footer>
 </body>
 </html>

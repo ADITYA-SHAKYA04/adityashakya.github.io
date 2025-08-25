@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditya Shakya | Blog</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+  <canvas id="page-particles" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;"></canvas>
+  <div class="star-bg"></div>
+  <button id="theme-toggle" class="dark-toggle modern-toggle" aria-label="Toggle dark mode">
+    <span class="toggle-track">
+      <span class="toggle-thumb" id="toggle-thumb">🌙</span>
+    </span>
+  </button>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <div id="root" style="position: relative; z-index: 2; min-height: 100vh; padding-top: 2rem;">
+    <section id="blog" class="blog scroll-reveal visible" style="position: relative; z-index: 10; background: rgba(255,255,255,0.1); min-height: 80vh;">
+      <h2 style="text-align:center; margin-bottom:1.2rem; color: #333; font-size: 2rem;">Blog</h2>
+      <div class="blog-cards-container" style="position: relative; z-index: 10;">
+        <div class="blog-card" style="border: 2px solid #007bff; position: relative; z-index: 10;">
+          <h3 class="blog-title">Welcome to My Blog!</h3>
+          <p class="blog-summary">Here, I'll share insights on C++, Android development, system programming, and more. Stay tuned for technical deep-dives, tutorials, and personal experiences from my journey as a developer.</p>
+          <span class="blog-date">August 25, 2025</span>
+        </div>
+        
+        <div class="blog-card expandable-card" id="aosp-hal-blog" style="border: 2px solid #28a745; position: relative; z-index: 10;">
+          <button class="expand-btn">
+            <span>🚀 Building My AOSP HAL Demo: A Journey into Android's Deep Architecture</span>
+            <span style="float:right; font-size:1.2rem;">&#x25BC;</span>
+          </button>
+          <span class="blog-date">August 25, 2025</span>
+          <div class="blog-summary expandable-content" style="display:none; color: inherit;">
+            <h4 style="color: inherit;">🎯 My Journey with Android System Programming</h4>
+            <p style="color: inherit;">Most Android developers stay comfortable in the app layer - Activities, Fragments, ViewModels. But I decided to dive deeper into Android's system architecture. That's how my <b>AOSP HAL Demo project</b> was born - an educational exploration of JNI integration and hardware abstraction layer concepts.</p>
+            <p style="color: inherit;">This project became my learning playground for understanding two key areas: LED control and haptic feedback, but from a system programming perspective:</p>
+            
+            <div style="background: rgba(40, 167, 69, 0.1); border: 2px solid #28a745; padding: 15px; border-radius: 8px; margin: 15px 0;">
+              <h5 style="color: #28a745; margin-bottom: 10px;">🔦 FlashTune - Pure JNI/HAL</h5>
+              <p style="color: inherit;">My educational LED controller that demonstrates authentic AOSP development patterns. No Camera2 APIs - just pure JNI to C++ HAL implementation. It's designed for learning how Android system programming really works, with direct sysfs interface access where available.</p>
+            </div>
+            
+            <div style="background: rgba(0, 123, 255, 0.1); border: 2px solid #007bff; padding: 15px; border-radius: 8px; margin: 15px 0;">
+              <h5 style="color: #007bff; margin-bottom: 10px;">📳 PulsePlay - Hybrid Approach</h5>
+              <p style="color: inherit;">A haptics project showing both educational JNI/HAL implementation and practical Android API usage. This dual approach demonstrates the trade-offs between system-level programming (educational value) and real-world functionality (practical implementation).</p>
+            </div>
+
+            <h4 style="color: inherit;">🏗️ Learning-Focused Architecture</h4>
+            <p style="color: inherit;">Building this project taught me the fundamentals of Android system architecture. Here's the educational stack I implemented:</p>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin: 15px 0; text-align: center; font-family: 'Courier New', monospace;">
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">📱 Java UI Layer</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">🔧 Native Method Declarations</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">🌉 JNI Bridge (C++)</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">⚙️ HAL Implementation</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">🔩 sysfs Interface</div>
+            </div>
+
+            <h4 style="color: inherit;">💻 Key Learning Implementation</h4>
+            <p style="color: inherit;">Let me show you the core educational components that helped me understand Android system programming:</p>
+            
+            <h5 style="color: inherit;">🎨 App Layer - Simple UI Controls</h5>
+            <p style="color: inherit;">The UI demonstrates basic native method calls:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// FlashTune MainActivity.java - Learning JNI integration
+btnTurnOn.setOnClickListener(v -> {
+    mLedManager.turnOnLED();
+    Toast.makeText(this, "LED On", Toast.LENGTH_SHORT).show();
+});
+
+btnBlink.setOnClickListener(v -> {
+    mLedManager.blinkLED(5);
+});</pre>
+
+            <h5 style="color: inherit;">🔧 Native Method Declarations</h5>
+            <p style="color: inherit;">Learning how to declare and load native methods:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// LedManager.java - JNI method declarations
+public class LedManager {
+    static {
+        System.loadLibrary("led-jni");
+    }
+    
+    public native void turnOnLED();
+    public native void turnOffLED();
+    public native void blinkLED(int times);
+}</pre>
+
+            <h5 style="color: inherit;">🌉 JNI Bridge - Connecting Java to C++</h5>
+            <p style="color: inherit;">The educational JNI implementation:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// led_jni.cpp - JNI bridge for learning
+extern "C" JNIEXPORT void JNICALL
+Java_com_example_flashtune_LedManager_turnOnLED(JNIEnv *env, jobject thiz) {
+    // Call HAL function
+    led_hal_turn_on();
+}</pre>
+
+            <h5 style="color: inherit;">⚙️ HAL Implementation - Hardware Abstraction</h5>
+            <p style="color: inherit;">Learning hardware abstraction principles:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// led_hal.cpp - Educational HAL implementation
+void led_hal_turn_on() {
+    const char* led_path = "/sys/class/leds/led0/brightness";
+    if (access(led_path, W_OK) == 0) {
+        std::ofstream led_file(led_path);
+        if (led_file.is_open()) {
+            led_file << "255";  // Educational sysfs write
+            led_file.close();
+        }
+    } else {
+        // Educational logging for devices without hardware
+        __android_log_print(ANDROID_LOG_INFO, "LED_HAL", "LED turned on (simulated)");
+    }
+}</pre>
+
+            <h4 style="color: inherit;">🎯 What I Built - Educational Focus</h4>
+            <p style="color: inherit;">These projects are designed for learning Android system programming concepts:</p>
+            
+            <h5 style="color: inherit;">🔥 FlashTune - Pure JNI/HAL Learning</h5>
+            <ul style="color: inherit;">
+              <li><b>Educational JNI Integration:</b> Learn how Java calls native C++ methods</li>
+              <li><b>HAL Development Patterns:</b> Understand hardware abstraction principles</li>
+              <li><b>sysfs Interface Learning:</b> Direct kernel interface interaction where available</li>
+              <li><b>CMake Build Understanding:</b> Native Android library compilation</li>
+            </ul>
+
+            <h5 style="color: inherit;">📳 PulsePlay - Hybrid Learning Approach</h5>
+            <ul style="color: inherit;">
+              <li><b>Educational JNI/HAL Mode:</b> Learn system programming concepts</li>
+              <li><b>Functional Android API Mode:</b> Real haptic feedback for practical use</li>
+              <li><b>Trade-off Understanding:</b> Compare system vs application level approaches</li>
+              <li><b>Dual Implementation:</b> See both educational and production patterns</li>
+            </ul>
+
+            <h4 style="color: inherit;">🚀 Learning Challenges and Solutions</h4>
+            <p style="color: inherit;">Every educational project has its learning moments. Here's what I discovered:</p>
+            
+            <div style="border-left: 4px solid #007bff; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">Understanding Hardware Abstraction</h5>
+              <p style="color: inherit;"><b>The Learning:</b> Different devices have hardware interfaces in different locations. This taught me why HAL exists.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Built a flexible detection system that works across devices, with educational logging for learning purposes.</p>
+            </div>
+
+            <div style="border-left: 4px solid #28a745; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">JNI Memory Management</h5>
+              <p style="color: inherit;"><b>The Learning:</b> JNI reference management is crucial for stable native code.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Learned proper JNI patterns and implemented clean reference handling with educational comments.</p>
+            </div>
+
+            <div style="border-left: 4px solid #ffc107; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">CMake Build Integration</h5>
+              <p style="color: inherit;"><b>The Learning:</b> Android NDK build systems require specific configurations for JNI libraries.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Created well-documented CMake files that show proper native library setup for educational purposes.</p>
+            </div>
+
+            <h4 style="color: inherit;">📊 Key Learning Outcomes</h4>
+            <p style="color: inherit;">Building system-level Android projects taught me concepts not covered in typical app development:</p>
+            <ul style="color: inherit;">
+              <li><b>JNI Integration:</b> How Java and native C++ code communicate in Android</li>
+              <li><b>HAL Principles:</b> Understanding hardware abstraction layer concepts</li>
+              <li><b>Native Development:</b> CMake build systems and Android NDK usage</li>
+              <li><b>System Programming:</b> Direct sysfs interface interaction where available</li>
+            </ul>
+
+            <h4 style="color: inherit;">🎓 What This Project Taught Me</h4>
+            <p style="color: inherit;">This project was designed for educational purposes and taught me fundamental concepts:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+              <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>JNI Integration</h6>
+                <p style="color: white;">Java to C++ native method calls</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>HAL Concepts</h6>
+                <p style="color: white;">Hardware abstraction principles</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Native Development</h6>
+                <p style="color: white;">Android NDK and CMake</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>System Understanding</h6>
+                <p style="color: white;">Android architecture insights</p>
+              </div>
+            </div>
+
+            <h4 style="color: inherit;">🔮 Future Learning Plans</h4>
+            <p style="color: inherit;">This educational project opens up many advanced learning paths:</p>
+            <ul style="color: inherit;">
+              <li><b>Real AOSP Integration:</b> Learning actual framework service development</li>
+              <li><b>Binder IPC:</b> Understanding Android's inter-process communication</li>
+              <li><b>Device Driver Interaction:</b> Deeper kernel interface learning</li>
+              <li><b>SELinux Policies:</b> Security aspects of system programming</li>
+            </ul>
+
+            <h4 style="color: inherit;">🛠️ The Educational Tech Stack</h4>
+            <p style="color: inherit;"><b>Languages:</b> C++, Java | <b>Frameworks:</b> Android NDK, JNI | <b>Build Tools:</b> CMake, Gradle | <b>Learning Focus:</b> System programming concepts, hardware abstraction principles</p>
+
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
+              <h5>🚀 Ready to Learn Android System Programming?</h5>
+              <p style="color: white;">This educational project demonstrates fundamental concepts of Android system development through hands-on JNI/HAL implementation. Perfect for developers wanting to understand how Android works below the app layer!</p>
+              <p style="color: white; margin-top: 15px;"><b>Explore the complete learning resource on GitHub:</b></p>
+              <a href="https://github.com/ADITYA-SHAKYA04/aosp-hal-demo" target="_blank" rel="noopener" style="color: #ffe066; text-decoration: none; font-weight: bold; font-size: 1.1em;">🔗 github.com/ADITYA-SHAKYA04/aosp-hal-demo</a>
+              <p style="color: white; margin-top: 15px; font-size: 0.9em;">Star it if it helps your learning journey! Questions about the implementation are always welcome.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card expandable-card" id="sftp-exchange-blog" style="border: 2px solid #007bff; position: relative; z-index: 10;">
+          <button class="expand-btn">
+            <span>📁 Building SFTP Exchange: My Journey into Secure File Transfer</span>
+            <span style="float:right; font-size:1.2rem;">&#x25BC;</span>
+          </button>
+          <span class="blog-date">August 25, 2025</span>
+          <div class="blog-summary expandable-content" style="display:none; color: inherit;">
+            <h4 style="color: inherit;">🎯 From Frustration to Solution</h4>
+            <p style="color: inherit;">You know that feeling when you need to transfer files to your server securely, but existing apps either have terrible UIs or ask for too many permissions? That's exactly how <b>SFTP Exchange</b> was born. I wanted something clean, secure, and straightforward - no bloat, no ads, just pure SFTP functionality.</p>
+            <p style="color: inherit;">This project taught me about network programming, user interface design, and building practical Android applications that solve real problems developers face daily.</p>
+            
+            <div style="background: rgba(0, 123, 255, 0.1); border: 2px solid #007bff; padding: 15px; border-radius: 8px; margin: 15px 0;">
+              <h5 style="color: #007bff; margin-bottom: 10px;">🔐 Security First Philosophy</h5>
+              <p style="color: inherit;">Unlike many file transfer apps that use plain FTP or HTTP, SFTP Exchange uses only SFTP (SSH File Transfer Protocol) via the JSch library. Every single byte of data is encrypted end-to-end. No exceptions, no shortcuts. Your files and credentials are always protected.</p>
+            </div>
+
+            <h4 style="color: inherit;">🏗️ Simple Yet Effective Architecture</h4>
+            <p style="color: inherit;">I kept the architecture straightforward and focused on core functionality:</p>
+            <div style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 20px; border-radius: 10px; margin: 15px 0; text-align: center; font-family: 'Courier New', monospace;">
+              <div style="background: rgba(255,255,255,0.15); margin: 8px; padding: 10px; border-radius: 5px;">📱 Material Design UI</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.15); margin: 8px; padding: 10px; border-radius: 5px;">🎯 Connection Management</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.15); margin: 8px; padding: 10px; border-radius: 5px;">📂 File Operations Handler</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.15); margin: 8px; padding: 10px; border-radius: 5px;">🔗 JSch SFTP Client</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.15); margin: 8px; padding: 10px; border-radius: 5px;">🌐 Encrypted SSH Connection</div>
+            </div>
+
+            <h4 style="color: inherit;">💻 The Code That Made It Work</h4>
+            <p style="color: inherit;">Let me walk you through some of the key implementations that make SFTP Exchange both secure and user-friendly. Every line of code was written with both security and simplicity in mind.</p>
+            
+            <h5 style="color: inherit;">🔐 Secure Connection Setup</h5>
+            <p style="color: inherit;">The heart of the app is the connection management. Getting JSch to work reliably took some experimentation:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// MainActivity.java - Establishing secure SFTP connection
+JSch jsch = new JSch();
+Session session = jsch.getSession(username, host, port);
+session.setPassword(password);
+
+// Security configuration - no compromises
+Properties config = new Properties();
+config.put("StrictHostKeyChecking", "no"); // For demo - would verify in production
+session.setConfig(config);
+session.connect(5000); // 5 second timeout
+
+// Verify connection before proceeding
+if (session.isConnected()) {
+    // Launch file browser with credentials
+    Intent intent = new Intent(this, BrowseActivity.class);
+    intent.putExtra("host", host);
+    // ... pass credentials safely
+}</pre>
+
+            <h5 style="color: inherit;">📂 Smart File Browsing</h5>
+            <p style="color: inherit;">The file browser needed to handle different file types gracefully and provide smooth navigation:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// BrowseActivity.java - Directory listing with file type detection
+private void loadRemoteDirectory(String path) {
+    new Thread(() -> {
+        try {
+            ChannelSftp sftpChannel = (ChannelSftp) session.openChannel("sftp");
+            sftpChannel.connect();
+            
+            Vector&lt;ChannelSftp.LsEntry&gt; files = sftpChannel.ls(path);
+            List&lt;ChannelSftp.LsEntry&gt; sortedFiles = new ArrayList&lt;&gt;();
+            
+            // Smart sorting: directories first, then files alphabetically
+            for (ChannelSftp.LsEntry entry : files) {
+                if (!entry.getFilename().startsWith(".")) {
+                    sortedFiles.add(entry);
+                }
+            }
+            
+            runOnUiThread(() -> {
+                adapter.setFiles(files);
+            });
+        } catch (Exception e) {
+            runOnUiThread(() -> showError(e.getMessage()));
+        }
+    }).start();
+}</pre>
+
+            <h5 style="color: inherit;">📊 Progress Tracking</h5>
+            <p style="color: inherit;">Real-time progress tracking for file transfers:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// File transfer with progress monitoring
+private void downloadFile(String remotePath, String fileName) {
+    ProgressDialog progressDialog = new ProgressDialog(this);
+    progressDialog.setMessage("Downloading " + fileName);
+    progressDialog.show();
+    
+    new Thread(() -> {
+        try {
+            File localFile = new File(getExternalFilesDir(null), fileName);
+            FileOutputStream fos = new FileOutputStream(localFile);
+            
+            sftpChannel.get(remotePath, fos);
+            
+            runOnUiThread(() -> {
+                progressDialog.dismiss();
+                Toast.makeText(this, "Downloaded: " + fileName, Toast.LENGTH_SHORT).show();
+            });
+        } catch (Exception e) {
+            runOnUiThread(() -> showError(e.getMessage()));
+        }
+    }).start();
+}</pre>
+
+            <h4 style="color: inherit;">🎨 User Interface Design</h4>
+            <p style="color: inherit;">Creating an intuitive interface for file operations required careful thought about user workflows:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0;">
+              <div style="background: rgba(0, 123, 255, 0.1); border: 2px solid #007bff; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #007bff;">🎯 Connection Screen</h6>
+                <p style="color: inherit; font-size: 0.9em;">Clean form with essentials: host, port, username, password. Simple validation and connection testing.</p>
+              </div>
+              <div style="background: rgba(40, 167, 69, 0.1); border: 2px solid #28a745; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #28a745;">📁 File Browser</h6>
+                <p style="color: inherit; font-size: 0.9em;">RecyclerView-based file listing with clear icons, long-press multi-selection, and intuitive navigation.</p>
+              </div>
+              <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid #ffc107; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #ffc107;">📊 Progress Tracking</h6>
+                <p style="color: inherit; font-size: 0.9em;">Real-time progress dialogs with file names and transfer status feedback.</p>
+              </div>
+              <div style="background: rgba(108, 117, 125, 0.1); border: 2px solid #6c757d; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #6c757d;">🌙 Material Theming</h6>
+                <p style="color: inherit; font-size: 0.9em;">Automatic dark/light mode switching with Material Components throughout.</p>
+              </div>
+            </div>
+
+            <h4 style="color: inherit;">🔧 Development Challenges and Solutions</h4>
+            <p style="color: inherit;">Building SFTP Exchange taught me important lessons about Android development:</p>
+            
+            <div style="border-left: 4px solid #007bff; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">Threading and UI Updates</h5>
+              <p style="color: inherit;"><b>The Challenge:</b> Network operations must run on background threads, but UI updates must happen on the main thread.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Used proper thread management with runOnUiThread() for UI updates and background threads for all network operations with error handling.</p>
+            </div>
+
+            <div style="border-left: 4px solid #28a745; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">File Storage and Permissions</h5>
+              <p style="color: inherit;"><b>The Challenge:</b> Android storage permissions can be complex, and users shouldn't need excessive permissions for file transfers.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Used app-specific external storage that doesn't require special permissions, providing secure and accessible file storage.</p>
+            </div>
+
+            <div style="border-left: 4px solid #ffc107; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">Connection Management</h5>
+              <p style="color: inherit;"><b>The Challenge:</b> SFTP connections can timeout or fail due to network issues, requiring graceful error handling.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Implemented connection validation with proper timeout handling and user-friendly error messages without exposing sensitive details.</p>
+            </div>
+
+            <h4 style="color: inherit;">📱 Key Features</h4>
+            <p style="color: inherit;">SFTP Exchange focuses on essential secure file transfer functionality:</p>
+            <ul style="color: inherit;">
+              <li><b>🔒 SSH/SFTP Encryption:</b> All data transmitted using JSch library with SSH protocol encryption</li>
+              <li><b>� Multi-File Operations:</b> Long-press selection for multiple files, batch upload/download operations</li>
+              <li><b>🎨 Material Design:</b> Clean UI with automatic dark/light theme switching</li>
+              <li><b>📊 Progress Tracking:</b> Real-time progress dialogs with transfer status</li>
+              <li><b>🛡️ Privacy Focused:</b> App-specific storage, no excessive permissions, no credential storage</li>
+              <li><b>⚡ Simple Interface:</b> Straightforward connection form and intuitive file browsing</li>
+            </ul>
+
+            <h4 style="color: inherit;">🎓 What Building This App Taught Me</h4>
+            <p style="color: inherit;">SFTP Exchange was an excellent learning project that taught me practical Android development skills:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+              <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Network Programming</h6>
+                <p style="color: white;">JSch library integration and SFTP protocol handling</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>UI/UX Design</h6>
+                <p style="color: white;">Material Components and intuitive file management interfaces</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Security Practices</h6>
+                <p style="color: white;">Encrypted communication and secure file handling</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Threading & Error Handling</h6>
+                <p style="color: white;">Background operations with proper UI feedback</p>
+              </div>
+            </div>
+
+            <h4 style="color: inherit;">🚀 Future Enhancement Ideas</h4>
+            <p style="color: inherit;">This project has room for additional features:</p>
+            <ul style="color: inherit;">
+              <li><b>🔑 SSH Key Authentication:</b> Support for private key authentication</li>
+              <li><b>📚 Server Bookmarks:</b> Save frequently used server connections</li>
+              <li><b>🔍 File Search:</b> Search functionality within remote directories</li>
+              <li><b>⏸️ Transfer Resume:</b> Resume interrupted file transfers</li>
+              <li><b>🌐 Multiple Connections:</b> Connect to multiple servers simultaneously</li>
+            </ul>
+
+            <h4 style="color: inherit;">🛠️ The Tech Stack</h4>
+            <p style="color: inherit;"><b>Languages:</b> Java 11, XML | <b>Libraries:</b> JSch 0.1.55, Material Components 1.12.0, AndroidX AppCompat 1.7.1 | <b>Tools:</b> Android Studio, Gradle | <b>Target:</b> Android 10+ (API 29)</p>
+
+            <div style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
+              <h5>📱 Try SFTP Exchange!</h5>
+              <p style="color: white;">A straightforward Android application for secure SFTP file transfers with clean Material Design UI. Built to solve the real need for simple, secure file transfer on mobile devices.</p>
+              <p style="color: white; margin-top: 15px;"><b>Explore the source code on GitHub:</b></p>
+              <a href="https://github.com/ADITYA-SHAKYA04/SFTPExchange" target="_blank" rel="noopener" style="color: #ffe066; text-decoration: none; font-weight: bold; font-size: 1.1em;">🔗 github.com/ADITYA-SHAKYA04/SFTPExchange</a>
+              <p style="color: white; margin-top: 15px; font-size: 0.9em;">⭐ Star the repo if it's useful for your development workflow!</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="blog-card expandable-card" id="cipherguard-blog" style="border: 2px solid #dc3545; position: relative; z-index: 10;">
+          <button class="expand-btn">
+            <span>🔐 Building CipherGuard: Enterprise-Grade Android Encryption</span>
+            <span style="float:right; font-size:1.2rem;">&#x25BC;</span>
+          </button>
+          <span class="blog-date">August 25, 2025</span>
+          <div class="blog-summary expandable-content" style="display:none; color: inherit;">
+            <h4 style="color: inherit;">🛡️ Creating Production-Ready Android Security</h4>
+            <p style="color: inherit;">In the world of mobile security, most encryption apps are either too simple for real-world use or too complex for everyday users. That's why I built <b>CipherGuard</b> - an enterprise-grade Android encryption application that balances advanced cryptographic security with intuitive user experience.</p>
+            
+            <p style="color: inherit;">CipherGuard represents my deep dive into Android security architecture, cryptographic best practices, and modern Material Design principles. This isn't just another encryption app - it's a comprehensive security solution built with production-ready standards.</p>
+
+            <div style="background: rgba(220, 53, 69, 0.1); border: 2px solid #dc3545; padding: 15px; border-radius: 8px; margin: 15px 0;">
+              <h5 style="color: #dc3545; margin-bottom: 10px;">🔒 Why CipherGuard?</h5>
+              <p style="color: inherit;">Android users need secure encryption that doesn't require a computer science degree. CipherGuard provides enterprise-level security with consumer-friendly design, using Android's hardware-backed KeyStore for maximum protection.</p>
+            </div>
+
+            <h4 style="color: inherit;">🏗️ Enterprise Security Architecture</h4>
+            <p style="color: inherit;">Building production-ready encryption software requires more than just implementing algorithms. Here's the security architecture I designed for CipherGuard:</p>
+            
+            <div style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); color: white; padding: 20px; border-radius: 10px; margin: 15px 0; text-align: center; font-family: 'Courier New', monospace;">
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">📱 Material Design UI Layer</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">🎛️ Algorithm Selection & Configuration</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">🔧 CryptoUtils - Advanced Operations</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">🔐 Android KeyStore (Hardware-Backed)</div>
+              <div style="font-size: 18px;">⬇️</div>
+              <div style="background: rgba(255,255,255,0.1); margin: 8px; padding: 8px; border-radius: 5px;">⚡ TEE/Secure Element</div>
+            </div>
+
+            <h4 style="color: inherit;">🔐 Multiple Encryption Algorithms</h4>
+            <p style="color: inherit;">CipherGuard supports four industry-standard encryption methods, each optimized for different use cases:</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 15px 0;">
+              <div style="background: rgba(40, 167, 69, 0.1); border: 2px solid #28a745; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #28a745;">🥇 AES-GCM (256-bit) - Recommended</h6>
+                <p style="color: inherit; font-size: 0.9em;">Authenticated encryption with built-in integrity verification. Galois/Counter Mode provides both confidentiality and authentication in one operation. Perfect for most use cases.</p>
+              </div>
+              <div style="background: rgba(0, 123, 255, 0.1); border: 2px solid #007bff; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #007bff;">🔒 AES-CBC (256-bit) - Traditional</h6>
+                <p style="color: inherit; font-size: 0.9em;">Cipher Block Chaining with PKCS7 padding. The traditional AES mode for compatibility with legacy systems. Reliable and widely supported.</p>
+              </div>
+              <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid #ffc107; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #ffc107;">🔑 RSA-OAEP (2048-bit) - Hybrid</h6>
+                <p style="color: inherit; font-size: 0.9em;">Hybrid encryption using RSA for key encryption and AES-GCM for data. Optimal Asymmetric Encryption Padding with SHA-256. Ideal for large files.</p>
+              </div>
+              <div style="background: rgba(108, 117, 125, 0.1); border: 2px solid #6c757d; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #6c757d;">🗝️ AES-PBKDF2 - Password-Based</h6>
+                <p style="color: inherit; font-size: 0.9em;">Password-based encryption with 100,000 iterations using PBKDF2-HMAC-SHA256. Secure key derivation with random salts for personal data protection.</p>
+              </div>
+            </div>
+
+            <h4 style="color: inherit;">💻 Technical Implementation Deep-Dive</h4>
+            <p style="color: inherit;">Let me show you the core security implementations that make CipherGuard production-ready:</p>
+            
+            <h5 style="color: inherit;">🔐 Android KeyStore Integration</h5>
+            <p style="color: inherit;">Hardware-backed security using Android's Trusted Execution Environment:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// CryptoUtils.java - Secure key generation
+private static SecretKey getOrCreateAESKey(String alias, String blockMode) throws Exception {
+    KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+    keyStore.load(null);
+    
+    if (!keyStore.containsAlias(alias)) {
+        KeyGenerator keyGenerator = KeyGenerator.getInstance(
+            KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
+            
+        KeyGenParameterSpec.Builder builder = new KeyGenParameterSpec.Builder(alias,
+            KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+            .setBlockModes(blockMode)
+            .setKeySize(256)  // 256-bit AES
+            .setEncryptionPaddings(blockMode.equals(KeyProperties.BLOCK_MODE_GCM) 
+                ? KeyProperties.ENCRYPTION_PADDING_NONE 
+                : KeyProperties.ENCRYPTION_PADDING_PKCS7);
+                
+        keyGenerator.init(builder.build());
+        keyGenerator.generateKey();
+    }
+    
+    return (SecretKey) keyStore.getKey(alias, null);
+}</pre>
+
+            <h5 style="color: inherit;">🎯 AES-GCM Implementation</h5>
+            <p style="color: inherit;">Authenticated encryption with proper IV handling:</p>
+            <pre style="background:#f8f9fa; color:#222; padding:0.8em; border-radius:0.7em; font-size:0.9em; overflow-x:auto; border: 1px solid #ddd;">// AES-GCM encryption with authentication
+public static String encryptAESGCM(Context context, String plainText) throws Exception {
+    SecretKey key = getOrCreateAESKey(AES_GCM_ALIAS, KeyProperties.BLOCK_MODE_GCM);
+    
+    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+    cipher.init(Cipher.ENCRYPT_MODE, key);
+    
+    byte[] iv = cipher.getIV();  // 12-byte IV for GCM
+    byte[] encrypted = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
+    
+    // Combine IV + encrypted data
+    byte[] combined = new byte[iv.length + encrypted.length];
+    System.arraycopy(iv, 0, combined, 0, iv.length);
+    System.arraycopy(encrypted, 0, combined, iv.length, encrypted.length);
+    
+    return Base64.encodeToString(combined, Base64.DEFAULT);
+}</pre>
+
+            <h5 style="color: inherit;">📱 Modern User Experience</h5>
+            <p style="color: inherit;">CipherGuard features an intuitive Material Design 3 interface with comprehensive functionality:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0;">
+              <div style="background: rgba(0, 123, 255, 0.1); border: 2px solid #007bff; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #007bff;">🎨 Material Design 3</h6>
+                <p style="color: inherit; font-size: 0.9em;">Dynamic theming with automatic light/dark mode switching, smooth animations, and modern Material Components throughout.</p>
+              </div>
+              <div style="background: rgba(40, 167, 69, 0.1); border: 2px solid #28a745; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #28a745;">📋 Dual Mode Operations</h6>
+                <p style="color: inherit; font-size: 0.9em;">Seamless text and file encryption with automatic format preservation, proper naming conventions, and MIME type handling.</p>
+              </div>
+              <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid #ffc107; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #ffc107;">🔧 Intuitive Controls</h6>
+                <p style="color: inherit; font-size: 0.9em;">Simple algorithm selection, password visibility toggle, one-tap clipboard integration, and comprehensive error handling.</p>
+              </div>
+              <div style="background: rgba(220, 53, 69, 0.1); border: 2px solid #dc3545; padding: 15px; border-radius: 8px;">
+                <h6 style="color: #dc3545;">🎓 Security Education</h6>
+                <p style="color: inherit; font-size: 0.9em;">Built-in security tips dialog with algorithm explanations and cryptographic best practices for user education.</p>
+              </div>
+            </div>
+
+            <h4 style="color: inherit;">🔧 Development Challenges and Solutions</h4>
+            <p style="color: inherit;">Building enterprise-grade encryption software presented unique technical challenges:</p>
+            
+            <div style="border-left: 4px solid #007bff; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">Android KeyStore Complexity</h5>
+              <p style="color: inherit;"><b>The Challenge:</b> Android KeyStore APIs are complex, with different requirements for different key types and encryption modes.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Created a unified CryptoUtils class that handles all KeyStore interactions with proper error handling and fallback mechanisms.</p>
+            </div>
+
+            <div style="border-left: 4px solid #28a745; padding-left: 15px; margin: 15px 0;">
+              <h5 style="color: inherit;">File Encryption Performance</h5>
+              <p style="color: inherit;"><b>The Challenge:</b> Large file encryption can block the UI and consume significant memory.</p>
+              <p style="color: inherit;"><b>My Solution:</b> Implemented efficient file handling with proper threading and progress reporting for responsive UI during large operations.</p>
+            </div>
+
+            <h4 style="color: inherit;">📊 Key Features & Capabilities</h4>
+            <p style="color: inherit;">CipherGuard delivers comprehensive encryption functionality:</p>
+            <ul style="color: inherit;">
+              <li><b>🔐 Four Encryption Algorithms:</b> AES-GCM, AES-CBC, RSA-OAEP, and AES-PBKDF2 with industry-standard parameters</li>
+              <li><b>📁 Complete File Support:</b> Encrypt/decrypt any file type with MIME preservation and automatic naming</li>
+              <li><b>🛡️ Hardware Security:</b> Android KeyStore integration with TEE/Secure Element protection</li>
+              <li><b>🎨 Modern UI:</b> Material Design 3 with dynamic theming and intuitive controls</li>
+              <li><b>📋 Clipboard Integration:</b> Easy copy/paste with secure memory handling</li>
+              <li><b>🎓 Security Education:</b> Built-in tips and algorithm information for user learning</li>
+              <li><b>🔒 Privacy Focused:</b> No data collection, no network access, local-only operations</li>
+            </ul>
+
+            <h4 style="color: inherit;">🎓 What Building CipherGuard Taught Me</h4>
+            <p style="color: inherit;">This project was an intensive learning experience in Android security development:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+              <div style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Cryptographic Engineering</h6>
+                <p style="color: white;">Advanced encryption algorithms and secure implementation patterns</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Android Security APIs</h6>
+                <p style="color: white;">KeyStore integration and hardware-backed security</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Material Design 3</h6>
+                <p style="color: white;">Modern UI patterns and dynamic theming systems</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                <h6>Production Architecture</h6>
+                <p style="color: white;">Scalable code organization and comprehensive error handling</p>
+              </div>
+            </div>
+
+            <h4 style="color: inherit;">🛠️ Technical Stack & Standards</h4>
+            <p style="color: inherit;"><b>Language:</b> Java 11 | <b>Framework:</b> Android SDK, Material Design 3 | <b>Security:</b> Android KeyStore, AES-256, RSA-2048 | <b>Standards:</b> NIST-approved algorithms, PBKDF2-HMAC-SHA256 | <b>Target:</b> Android 10+ (API 29+)</p>
+
+            <div style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
+              <h5>🔐 Experience CipherGuard Security!</h5>
+              <p style="color: white;">Enterprise-grade Android encryption application with hardware-backed security, modern UI design, and comprehensive cryptographic features. Built for users who need real security without complexity.</p>
+              <p style="color: white; margin-top: 15px;"><b>Explore the source code and security implementation:</b></p>
+              <a href="https://github.com/ADITYA-SHAKYA04/CipherGuard" target="_blank" rel="noopener" style="color: #ffe066; text-decoration: none; font-weight: bold; font-size: 1.1em;">🔗 github.com/ADITYA-SHAKYA04/CipherGuard</a>
+              <p style="color: white; margin-top: 15px; font-size: 0.9em;">⭐ Star the repo if you appreciate secure Android development!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script>
+  // Star background animation
+  function createStars(numStars = 80) {
+    const starBg = document.querySelector('.star-bg');
+    if (!starBg) return;
+    starBg.innerHTML = '';
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDelay = (Math.random() * 2) + 's';
+      starBg.appendChild(star);
+    }
+  }
+  createStars();
+  window.addEventListener('resize', () => createStars());
+
+  // Particle animation
+  function pageParticles() {
+    const canvas = document.getElementById('page-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+    const particles = Array.from({length: 60}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 2.5 + 1.5,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.2,
+      color: Math.random() > 0.7 ? '#ffe066' : '#007bff'
+    }));
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = 0.7;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+    window.addEventListener('resize', () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    });
+  }
+  pageParticles();
+
+  // Theme toggle logic
+  const toggleBtn = document.getElementById('theme-toggle');
+  const thumb = document.getElementById('toggle-thumb');
+  function setTheme(dark) {
+    document.body.classList.toggle('dark', dark);
+    toggleBtn.classList.toggle('dark', dark);
+    if (dark) {
+      thumb.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" fill="#ffe066"/><path d="M11 3v2M11 17v2M4.93 4.93l1.41 1.41M15.66 15.66l1.41 1.41M3 11h2M17 11h2M4.93 17.07l1.41-1.41M15.66 6.34l1.41-1.41" stroke="#222" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    } else {
+      thumb.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" fill="#222"/><path d="M15 11a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" fill="#fff"/></svg>';
+    }
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+  // Initial theme from localStorage or system
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+  setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+  toggleBtn.addEventListener('click', () => {
+    setTheme(!document.body.classList.contains('dark'));
+  });
+
+  // Expand/collapse logic for blog cards
+  document.querySelectorAll('.expandable-card .expand-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const content = btn.parentElement.querySelector('.expandable-content');
+      const arrow = btn.querySelector('span:last-child');
+      if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        arrow.innerHTML = '&#x25B2;'; // Up arrow
+      } else {
+        content.style.display = 'none';
+        arrow.innerHTML = '&#x25BC;'; // Down arrow
+      }
+    });
+  });
+
+  // Function to expand a specific blog card with retry mechanism
+  function expandBlogCard(cardId, retries = 3) {
+    console.log('=== Expanding card:', cardId, 'retries left:', retries, '===');
+    const card = document.getElementById(cardId);
+    console.log('Card element found:', !!card, card);
+    
+    if (card) {
+      const content = card.querySelector('.expandable-content');
+      const button = card.querySelector('.expand-btn');
+      const arrow = card.querySelector('.expand-btn span:last-child');
+      
+      console.log('Content element found:', !!content, content);
+      console.log('Button element found:', !!button, button);
+      console.log('Arrow element found:', !!arrow, arrow);
+      
+      if (content && arrow) {
+        console.log('Before expansion - content display:', content.style.display);
+        content.style.display = 'block';
+        arrow.innerHTML = '&#x25B2;'; // Up arrow
+        console.log('After expansion - content display:', content.style.display);
+        console.log('Arrow updated to up arrow');
+        
+        // Scroll to the card with a slight delay and proper top positioning
+        setTimeout(() => {
+          console.log('Scrolling to card:', cardId);
+          // Get the card's position
+          const cardRect = card.getBoundingClientRect();
+          const cardTop = cardRect.top + window.pageYOffset;
+          
+          // Account for navigation bar height (approximately 80px) plus some padding
+          const navHeight = 90; // Navigation bar height + padding
+          
+          // Scroll to position the card below the navigation bar
+          window.scrollTo({
+            top: cardTop - navHeight,
+            behavior: 'smooth'
+          });
+        }, 150);
+        return true;
+      } else {
+        console.log('Missing elements - content:', !!content, 'arrow:', !!arrow);
+        if (!content) {
+          console.log('Available elements in card:', card.querySelectorAll('*'));
+        }
+      }
+    } else {
+      console.log('Available elements with IDs:', Array.from(document.querySelectorAll('[id]')).map(el => el.id));
+    }
+    
+    // Retry if elements not found and retries remaining
+    if (retries > 0) {
+      console.log('Retrying in 200ms...');
+      setTimeout(() => expandBlogCard(cardId, retries - 1), 200);
+    } else {
+      console.log('No more retries for:', cardId);
+    }
+    return false;
+  }
+
+  // Function to handle hash-based expansion
+  function handleHashExpansion() {
+    const hash = window.location.hash.substring(1);
+    console.log('Handling hash:', hash);
+    if (hash && hash.includes('blog')) {
+      console.log('Valid blog hash detected:', hash);
+      // Try immediate expansion
+      expandBlogCard(hash);
+    }
+  }
+
+  // Check URL hash on page load to auto-expand specific blog cards
+  window.addEventListener('load', function() {
+    console.log('Page loaded, checking hash:', window.location.hash);
+    handleHashExpansion();
+  });
+
+  // Also try DOMContentLoaded for faster execution
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, checking hash:', window.location.hash);
+    handleHashExpansion();
+  });
+
+  // Handle hash changes (back/forward navigation)
+  window.addEventListener('hashchange', function() {
+    console.log('Hash changed to:', window.location.hash);
+    handleHashExpansion();
+  });
+
+  // Immediate execution if hash is already present
+  if (window.location.hash) {
+    console.log('Hash detected on script execution:', window.location.hash);
+    setTimeout(handleHashExpansion, 100);
+  }
+</script>
+
+<!-- Footer with Social Links -->
+<footer class="site-footer">
+  <div style="font-size:1.2rem; margin-bottom:1.5rem;">Connect with me:</div>
+  <div class="social-links">
+    <a href="mailto:aditya.shakya@email.com" class="social-link gmail-link" title="Gmail">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M36 32V12c0-2.21-1.79-4-4-4H8c-2.21 0-4 1.79-4 4v20c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4zM32 12l-12 8L8 12h24zM8 16l12 8 12-8v16H8V16z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/aditya-shakya/" target="_blank" rel="noopener" class="social-link linkedin-link" title="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M34.4 0H5.6C2.52 0 0 2.52 0 5.6v28.8C0 37.48 2.52 40 5.6 40h28.8c3.08 0 5.6-2.52 5.6-5.6V5.6C40 2.52 37.48 0 34.4 0zM12 32H8V16h4v16zM10 14c-1.33 0-2.4-1.07-2.4-2.4S8.67 9.2 10 9.2s2.4 1.07 2.4 2.4S11.33 14 10 14zM32 32h-4v-8c0-2.21-1.79-4-4-4s-4 1.79-4 4v8h-4V16h4v2.4c1.07-1.33 2.93-2.4 5.2-2.4 3.52 0 6.8 2.88 6.8 6.4V32z"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ADITYA-SHAKYA04" target="_blank" rel="noopener" class="social-link github-link" title="GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M20 0C8.95 0 0 8.95 0 20c0 8.84 5.74 16.34 13.71 19 1-.18 1.37-.43 1.37-.96v-3.38c-5.56 1.21-6.73-2.68-6.73-2.68-.91-2.31-2.22-2.93-2.22-2.93-1.82-1.24.14-1.22.14-1.22 2.01.14 3.07 2.07 3.07 2.07 1.79 3.06 4.69 2.18 5.84 1.67.18-1.3.7-2.18 1.27-2.68C11.79 28.35 7.18 26.64 7.18 18.95c0-2.18.78-3.96 2.07-5.36-.21-.51-.9-2.55.2-5.32 0 0 1.69-.54 5.53 2.06A19.19 19.19 0 0 1 20 9.5c1.71.01 3.43.23 5.04.68 3.84-2.6 5.53-2.06 5.53-2.06 1.1 2.77.41 4.81.2 5.32 1.29 1.4 2.07 3.18 2.07 5.36 0 7.69-4.61 9.4-9 9.9.71.61 1.34 1.82 1.34 3.67v5.44c0 .53.37 1.14 1.38.95C34.26 36.34 40 28.84 40 20 40 8.95 31.05 0 20 0z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
